@@ -1,0 +1,4 @@
+# 統一換行格式，避免跨平台（Windows / macOS / Linux）時腳本被改壞
+* text=auto
+*.sh text eol=lf
+*.bat text eol=crlf
