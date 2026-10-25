@@ -1,0 +1,64 @@
+# eco-data-platform：生態調查資料庫 + BI 分析網頁（Docker 或 Podman 皆可）
+# 使用方式：
+#   ./run-docker.sh start   或 ./run-podman.sh start   (Windows: run-docker.bat / run-podman.bat)
+# 首次啟動後，瀏覽器開啟 http://<伺服器位址>:8000 即可看到分析儀表板。
+# 目前只涵蓋斗六堰資料；之後納入其他測點（如集集堰）時，沿用同一套 db/etl/webapp 服務，
+# 只需在 etl 擷取程式與 data/ 底下新增該測點的資料表即可，不需要另外建立服務。
+
+services:
+  db:
+    image: postgres:16
+    container_name: eco-data-platform-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: eco_data_platform
+      POSTGRES_USER: eco
+      POSTGRES_PASSWORD: eco_change_me
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U eco -d eco_data_platform"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  etl:
+    build: ./etl
+    container_name: eco-data-platform-etl
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PGHOST: db
+      PGPORT: 5432
+      PGDATABASE: eco_data_platform
+      PGUSER: eco
+      PGPASSWORD: eco_change_me
+    volumes:
+      - ./sql:/app/sql
+      - ./data:/app/data
+    restart: "no"
+
+  webapp:
+    build: ./webapp
+    container_name: eco-data-platform-webapp
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PGHOST: db
+      PGPORT: 5432
+      PGDATABASE: eco_data_platform
+      PGUSER: eco
+      PGPASSWORD: eco_change_me
+    volumes:
+      # 前端頁面直接掛載 artifact_data/，改完 index.html 或 data.json 立即生效，不必重建映像檔。
+      - ./artifact_data:/app/static:ro
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+volumes:
+  pgdata:

@@ -1,0 +1,953 @@
+<title>生態調查資料平台</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+<style>
+/* layout: sticky filter rail (global filters only) + report column grouped into
+   clearly-labelled sections, each card tagged with which filters actually apply to it.
+   palette: "tealaurora" - soft teal/aurora pastel BI theme */
+:root{
+  --bg:#e8f5f1; --surface:#ffffff; --surface-2:#dff2ec; --ink:#162624; --ink-dim:#5c7d77;
+  --border:#c3e3da; --accent:#2fa89a; --accent-soft:#2fa89a1c; --line-grid:#d7ece5;
+  --ok:#2fa89a; --warn:#c97848;
+  --aurora-1:#2fa89a; --aurora-2:#8a7aec; --aurora-3:#ec6f98; --aurora-4:#4f9fd9; --aurora-5:#5fb880; --aurora-6:#d99a3f;
+  --aurora-7:#c98f6b; --aurora-8:#6b9ac9; --aurora-9:#a3b24a;
+  --font-display:'Sora', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+  --font-body:'Public Sans', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+  --font-mono:'IBM Plex Mono', 'Microsoft JhengHei', monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#070f0e; --surface:#132220; --surface-2:#1a2f2c; --ink:#f3fbf8; --ink-dim:#a9d4ca;
+    --border:#2c5750; --accent:#6ef0da; --accent-soft:#6ef0da26; --line-grid:#20433d;
+    --ok:#6ef0da; --warn:#f0b57e;
+    --aurora-1:#6ef0da; --aurora-2:#c2b3ff; --aurora-3:#ffabce; --aurora-4:#9bdcff; --aurora-5:#aef2c3; --aurora-6:#ffcf8a;
+    --aurora-7:#e3b48f; --aurora-8:#9cc6ea; --aurora-9:#cbdb8d;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#070f0e; --surface:#132220; --surface-2:#1a2f2c; --ink:#f3fbf8; --ink-dim:#a9d4ca;
+  --border:#2c5750; --accent:#6ef0da; --accent-soft:#6ef0da26; --line-grid:#20433d;
+  --ok:#6ef0da; --warn:#f0b57e;
+  --aurora-1:#6ef0da; --aurora-2:#c2b3ff; --aurora-3:#ffabce; --aurora-4:#9bdcff; --aurora-5:#aef2c3; --aurora-6:#ffcf8a;
+  --aurora-7:#e3b48f; --aurora-8:#9cc6ea; --aurora-9:#cbdb8d;
+  color-scheme: dark;
+}
+*{box-sizing:border-box;}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--font-body); margin:0;
+  padding-left:max(16px, env(safe-area-inset-left,0px)); padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+h1,h2,h3{font-family:var(--font-display); text-wrap:balance; margin:0;}
+.wrap{max-width:1360px; margin:0 auto; padding-block:20px 48px;}
+.masthead{display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; padding-block:4px 20px; border-bottom:1px solid var(--border); margin-bottom:20px;}
+.masthead h1{font-size:24px; font-weight:700;}
+.masthead .right{display:flex; align-items:center; gap:14px;}
+.masthead .meta{font-size:12px; color:var(--ink-dim); font-family:var(--font-mono);}
+.theme-btn{display:flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:10px; border:1px solid var(--border); background:var(--surface); color:var(--ink); cursor:pointer; font-size:16px;}
+.theme-btn:hover{border-color:var(--accent);}
+.layout{display:grid; grid-template-columns:252px 1fr; gap:20px;}
+@media (max-width:860px){ .layout{grid-template-columns:1fr;} }
+.filters{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px; align-self:start; position:sticky; top:16px;}
+.filters h3{font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-dim); margin-bottom:4px;}
+.filters .sub{font-size:10.5px; color:var(--ink-dim); line-height:1.5; margin-bottom:14px;}
+.filters label{display:block; font-size:12px; color:var(--ink-dim); margin:18px 0 8px;}
+.filters label:first-of-type{margin-top:0;}
+.filters select, .species-picker{width:100%; padding:8px; border:1px solid var(--border); border-radius:8px; font-size:13px; background:var(--surface-2); color:var(--ink); font-family:var(--font-body);}
+.species-picker{max-width:360px; margin-bottom:14px;}
+.year-range-value{font-family:var(--font-mono); font-size:13px; color:var(--accent); font-weight:600; margin-bottom:10px; text-align:center;}
+.year-slider-wrap{padding:0 6px 6px; margin-bottom:4px;}
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:8px;}
+.kpi{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px;}
+.kpi .label{font-size:11px; color:var(--ink-dim); text-transform:uppercase; letter-spacing:.05em;}
+.kpi .value{font-family:var(--font-mono); font-size:26px; font-weight:600; color:var(--accent); margin-top:4px; font-variant-numeric:tabular-nums;}
+.kpi .kpi-sub{font-size:10px; color:var(--ink-dim); margin-top:3px;}
+.kpis-meta{font-size:11px; color:var(--ink-dim); margin-bottom:20px;}
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+@media (max-width:1000px){ .grid{grid-template-columns:1fr;} }
+.section-title{grid-column:1/-1; font-size:12px; font-weight:700; color:var(--ink-dim); text-transform:uppercase; letter-spacing:.06em; margin:22px 0 2px; padding-top:14px; border-top:1px solid var(--border);}
+.section-title:first-child{margin-top:0; padding-top:0; border-top:none;}
+.card{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px; min-width:0;}
+.card.full{grid-column:1/-1;}
+.card h2{font-size:14px; font-weight:600; margin-bottom:0;}
+.card .hint{font-size:11px; color:var(--ink-dim); margin-bottom:12px;}
+.card-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:8px; flex-wrap:wrap;}
+.link-btn{background:none; border:none; padding:0; color:var(--accent); font-size:11.5px; font-weight:600; font-family:var(--font-body); cursor:pointer; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;}
+.link-btn:hover{opacity:.75;}
+.scope{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px;}
+.scope span{font-size:10.5px; padding:2px 8px; border-radius:999px; font-weight:600; background:var(--accent-soft); color:var(--accent); white-space:nowrap;}
+.scope span.off{background:var(--surface-2); color:var(--ink-dim); text-decoration:line-through; opacity:.65;}
+.chart-box{position:relative; height:280px;}
+.table-scroll{max-height:280px; overflow:auto; border:1px solid var(--line-grid); border-radius:8px;}
+table{width:100%; border-collapse:collapse; font-size:12px;}
+th,td{text-align:left; padding:7px 10px; border-bottom:1px solid var(--line-grid); white-space:nowrap;}
+th{color:var(--ink-dim); font-weight:600; position:sticky; top:0; background:var(--surface);}
+td.num{font-family:var(--font-mono); font-variant-numeric:tabular-nums;}
+.pill{display:inline-block; padding:2px 8px; border-radius:999px; font-size:11px; font-weight:600;}
+.pill.endemic{background:var(--accent-soft); color:var(--warn);}
+.row-between{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:10px;}
+.tabs{display:flex; gap:6px; margin-bottom:12px; flex-wrap:wrap;}
+.tab-btn{font-family:var(--font-body); font-size:12.5px; font-weight:600; padding:6px 14px; border-radius:999px; border:1px solid var(--border); background:var(--surface-2); color:var(--ink-dim); cursor:pointer;}
+.tab-btn:hover{color:var(--ink);}
+.tab-btn.active{background:var(--accent); border-color:var(--accent); color:#fff;}
+.count-tag{font-family:var(--font-mono); font-size:12px; color:var(--ink-dim); font-variant-numeric:tabular-nums;}
+.btn{font-family:var(--font-body); font-size:12.5px; font-weight:600; padding:7px 14px; border-radius:8px; border:1px solid var(--border); background:var(--surface-2); color:var(--ink); cursor:pointer;}
+.btn:hover{border-color:var(--accent); color:var(--accent);}
+.btn.primary{background:var(--accent); border-color:var(--accent); color:#fff;}
+.btn.primary:hover{opacity:.9; color:#fff;}
+.btn-row{display:flex; gap:8px; flex-wrap:wrap;}
+.note{font-size:11.5px; color:var(--ink-dim); line-height:1.6; background:var(--surface-2); border-radius:10px; padding:10px 12px; margin-top:10px;}
+.toast{position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:var(--ink); color:var(--bg); padding:9px 18px; border-radius:999px; font-size:12.5px; opacity:0; pointer-events:none; transition:opacity .2s; z-index:50; max-width:min(90vw,480px); text-align:center;}
+.toast.show{opacity:1;}
+footer{color:var(--ink-dim); font-size:11px; text-align:center; padding-top:28px;}
+.loading{color:var(--ink-dim); font-size:13px; padding:40px; text-align:center;}
+
+/* data-inspection modal: in-page overlay for viewing/searching raw tables */
+.modal-overlay{position:fixed; inset:0; background:rgba(4,12,11,.55); display:flex; align-items:center; justify-content:center; z-index:100; padding:18px;}
+.modal-overlay[hidden]{display:none;}
+.modal-box{background:var(--surface); border:1px solid var(--border); border-radius:16px; width:min(980px,100%); max-height:86vh; display:flex; flex-direction:column; box-shadow:0 24px 60px rgba(0,0,0,.3);}
+.modal-head{display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid var(--border);}
+.modal-head h3{font-size:15px;}
+.icon-btn{width:30px; height:30px; border-radius:8px; border:1px solid var(--border); background:var(--surface-2); color:var(--ink); cursor:pointer; font-size:14px; line-height:1;}
+.icon-btn:hover{border-color:var(--accent); color:var(--accent);}
+.modal-toolbar{display:flex; align-items:center; gap:10px; padding:12px 18px; border-bottom:1px solid var(--border); flex-wrap:wrap;}
+.modal-toolbar input{flex:1; min-width:160px; padding:7px 10px; border:1px solid var(--border); border-radius:8px; background:var(--surface-2); color:var(--ink); font-size:13px; font-family:var(--font-body);}
+.modal-table-wrap{flex:1; overflow:auto; margin:0 18px 18px; border:1px solid var(--line-grid); border-radius:8px;}
+
+/* noUiSlider functional base (inlined from the noUiSlider package so the page
+   has no external CSS dependency) */
+.noUi-target,.noUi-target *{-webkit-touch-callout:none; -webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-user-select:none; touch-action:none; user-select:none; box-sizing:border-box;}
+.noUi-target{position:relative;}
+.noUi-base,.noUi-connects{width:100%; height:100%; position:relative; z-index:1;}
+.noUi-connects{overflow:hidden; z-index:0;}
+.noUi-connect,.noUi-origin{will-change:transform; position:absolute; z-index:1; top:0; right:0; height:100%; width:100%; transform-origin:0 0; transform-style:flat;}
+.noUi-horizontal .noUi-origin{height:0;}
+.noUi-handle{backface-visibility:hidden; position:absolute;}
+.noUi-touch-area{height:100%; width:100%;}
+.noUi-state-tap .noUi-connect,.noUi-state-tap .noUi-origin{transition:transform .3s;}
+.noUi-state-drag *{cursor:inherit !important;}
+.noUi-horizontal{height:18px;}
+.noUi-horizontal .noUi-handle{width:34px; height:28px; right:-17px; top:-6px;}
+.noUi-draggable{cursor:ew-resize;}
+
+/* noUiSlider theming to match the tealaurora palette */
+.noUi-target{background:var(--surface-2); border:1px solid var(--border); box-shadow:none; height:6px; border-radius:999px;}
+.noUi-connect{background:var(--accent);}
+.noUi-horizontal .noUi-handle{width:17px; height:17px; border-radius:50%; background:var(--surface); border:2px solid var(--accent); box-shadow:0 1px 3px rgba(0,0,0,.18); top:-6.5px; right:-9px; cursor:grab;}
+.noUi-horizontal .noUi-handle:active{cursor:grabbing;}
+.noUi-handle:before,.noUi-handle:after{display:none;}
+.noUi-touch-area{cursor:grab;}
+</style>
+
+<div class="wrap">
+  <div class="masthead">
+    <h1>生態調查資料平台</h1>
+    <div class="right">
+      <div class="meta" id="metaLine">載入中…</div>
+      <button class="theme-btn" id="themeToggle" title="切換深淺色" aria-label="切換深淺色">☀️</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside class="filters">
+      <h3>全域篩選條件</h3>
+      <div class="sub">會套用到下方「總覽圖表」區塊；水質與保育紀錄不受影響，詳見各卡片標示。</div>
+      <label>年度範圍</label>
+      <div class="year-range-value" id="yearRangeValue">– –</div>
+      <div class="year-slider-wrap"><div id="yearSlider"></div></div>
+      <label>分類</label>
+      <select id="categorySelect"><option value="">全部（魚／蝦蟹／爬蟲）</option></select>
+      <label>測站</label>
+      <select id="stationSelect"><option value="">全部測站</option></select>
+    </aside>
+
+    <main>
+      <div class="kpis" id="kpis"></div>
+      <div class="kpis-meta" id="metaLine2"></div>
+      <div class="note" id="partialYearNote" hidden></div>
+
+      <div class="grid">
+        <div class="section-title">總覽圖表　·　套用左側「年度／分類／測站」篩選</div>
+
+        <div class="card">
+          <div class="card-head"><h2>物種組成歷年趨勢</h2><button class="link-btn" id="catTrendDataBtn">原始資料</button></div>
+          <div class="scope"><span>年度</span><span>分類</span><span>測站</span></div>
+          <div class="hint">依左側篩選範圍，逐年堆疊顯示累計數量前8名物種＋其他（取代單純加總，避免掩蓋物種組成變化）</div>
+          <div class="chart-box"><canvas id="chartCategory"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>測站組成歷年趨勢</h2><button class="link-btn" id="stationTrendDataBtn">原始資料</button></div>
+          <div class="scope"><span>年度</span><span>分類</span><span>測站</span></div>
+          <div class="hint">各採樣站點逐年個體數，依測站堆疊顯示</div>
+          <div class="chart-box"><canvas id="chartStation"></canvas></div>
+        </div>
+        <div class="card full">
+          <div class="card-head"><h2>物種數量排行（前 15 名）</h2><button class="link-btn" id="topSpeciesDataBtn">原始資料</button></div>
+          <div class="scope"><span>年度</span><span>分類</span><span>測站</span></div>
+          <div class="hint">依左側篩選範圍加總的累計個體數</div>
+          <div class="chart-box"><canvas id="chartTop"></canvas></div>
+        </div>
+
+        <div class="section-title">單一物種查詢　·　物種清單依左側「分類／測站」縮小範圍，趨勢圖再套用「年度」</div>
+
+        <div class="card full">
+          <div class="card-head"><h2>單一物種歷年趨勢</h2><button class="link-btn" id="speciesTrendDataBtn">原始資料</button></div>
+          <div class="scope"><span>年度</span><span class="off">分類（僅篩清單）</span><span>測站</span></div>
+          <label style="display:block;font-size:12px;color:var(--ink-dim);margin-bottom:8px;">選擇物種（清單已依左側分類／測站篩選）</label>
+          <select id="speciesSelect" class="species-picker"><option value="">請選擇物種</option></select>
+          <div class="hint" id="speciesHint">從上方選擇一個物種</div>
+          <div class="chart-box"><canvas id="chartSpecies"></canvas></div>
+        </div>
+
+        <div class="section-title">環境與保育紀錄　·　不受左側篩選影響，固定顯示全部期間</div>
+
+        <div class="card full">
+          <div class="card-head"><h2>南雲大橋水質監測</h2><button class="link-btn" id="wqDataBtn">原始資料</button></div>
+          <div class="scope"><span class="off">年度</span><span class="off">分類</span><span class="off">測站</span></div>
+          <div class="hint">水溫／pH／溶氧／BOD，採樣當日讀值（全部期間）</div>
+          <div class="chart-box"><canvas id="chartWQ"></canvas></div>
+        </div>
+        <div class="card full">
+          <div class="card-head"><h2>特有保育類物種紀錄</h2><button class="link-btn" id="conservationDataBtn">原始資料</button></div>
+          <div class="tabs" id="conservationTabs">
+            <button class="tab-btn active" id="conservationTabPeriodBtn" data-tab="period">期間別檢視</button>
+            <button class="tab-btn" id="conservationTabYearlyBtn" data-tab="yearly">不分期間（年度）</button>
+          </div>
+
+          <div id="conservationPeriodPanel">
+            <div class="scope"><span class="off">年度</span><span class="off">分類</span><span class="off">測站</span></div>
+            <div class="hint">各期間為獨立統計區間，彼此常有重疊（例如同一年有1~3月／1~6月／全年），請選擇單一期間檢視，不要跨期間加總</div>
+            <div class="row-between">
+              <div class="btn-row" style="flex:1;min-width:0;">
+                <select id="periodSelect" class="species-picker" style="margin-bottom:0;max-width:220px;"></select>
+                <select id="conservationSpeciesSelect" class="species-picker" style="margin-bottom:0;max-width:220px;"><option value="">全部物種</option></select>
+              </div>
+              <span class="count-tag" id="conservationCount"></span>
+            </div>
+            <div class="table-scroll" style="margin-top:10px;">
+              <table>
+                <thead><tr><th>目／科</th><th>物種</th><th>特有性</th><th>保育等級</th><th>上游</th><th>魚道</th><th>魚道入口</th><th>下游</th><th>總計</th></tr></thead>
+                <tbody id="conservationBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="conservationYearlyPanel" hidden>
+            <div class="scope"><span>年度</span><span class="off">分類</span><span class="off">測站</span></div>
+            <div class="hint">套用左側「年度範圍」滑桿；每年只取該年度「全年」彙整區塊一筆，不逐期加總，避免重複計算；年度尚未結束的（目前是2026年）會標示並顯示目前最新一期</div>
+            <div class="row-between">
+              <span class="count-tag" id="conservationYearlyCount"></span>
+            </div>
+            <div class="table-scroll" style="margin-top:10px;max-height:360px;">
+              <table>
+                <thead><tr><th>年度</th><th>目／科</th><th>物種</th><th>特有性</th><th>保育等級</th><th>上游</th><th>魚道</th><th>魚道入口</th><th>下游</th><th>總計</th></tr></thead>
+                <tbody id="conservationYearlyBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-title">匯出與原始資料檢視</div>
+
+        <div class="card full">
+          <h2>匯出目前篩選結果</h2>
+          <div class="scope"><span>年度</span><span>分類</span><span>測站</span></div>
+          <div class="hint">依左側篩選條件（年度／分類／測站）匯出物種調查明細</div>
+          <div class="row-between">
+            <span class="count-tag" id="filteredCount">0 筆符合條件</span>
+            <div class="btn-row">
+              <button class="btn primary" id="copyFilteredBtn">複製為 CSV</button>
+              <button class="btn" id="viewFilteredBtn">查看明細（可搜尋）</button>
+            </div>
+          </div>
+          <div class="note">「複製為CSV」會把目前篩選結果複製到剪貼簿，可直接貼到 Excel 或純文字檔使用。</div>
+        </div>
+
+        <div class="card full">
+          <h2>原始資料檢視</h2>
+          <div class="hint" id="rawDataHint">本頁所有圖表皆基於以下四份已正規化資料表，不受左側篩選影響（永遠是全量）</div>
+          <div class="btn-row" id="rawDataButtons"></div>
+          <div class="note">
+            點擊會跳出完整表格，可用搜尋框輸入任意關鍵字（例如測站或物種名稱）快速核對特定資料是否正常，
+            也可以把目前顯示的內容複製為CSV。
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    資料來源：115 斗六堰水生生物調查表.xlsx ／ 115 南雲大橋流量水質報表.xlsx（2014–2026，經正規化處理）。<br>
+    Phase 1 範圍：斗六堰歷年資料。集集堰與流量資料將於後續階段納入。
+  </footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="modal-overlay" id="modalOverlay" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <h3 id="modalTitle">資料表</h3>
+      <button class="icon-btn" id="modalCloseBtn" aria-label="關閉">✕</button>
+    </div>
+    <div class="modal-toolbar">
+      <input type="text" id="modalSearch" placeholder="搜尋任意欄位內容…（例如：模組式）">
+      <span class="count-tag" id="modalCount"></span>
+      <button class="btn primary" id="modalCopyBtn">複製全部符合條件資料為 CSV</button>
+    </div>
+    <div class="modal-table-wrap">
+      <table><thead><tr id="modalHeadRow"></tr></thead><tbody id="modalBody"></tbody></table>
+    </div>
+  </div>
+</div>
+
+<script>
+const CATEGORY_ORDER = ["魚","蝦","爬蟲"];
+const CATEGORY_LABELS = {"蝦":"蝦蟹"};
+function categoryLabel(c){ return CATEGORY_LABELS[c] || c || ""; }
+function orderCategories(list){
+  const present = [...new Set(list)].filter(Boolean);
+  return CATEGORY_ORDER.filter(c=>present.includes(c)).concat(present.filter(c=>!CATEGORY_ORDER.includes(c)));
+}
+const CATEGORY_COLORS = {"魚":"var(--aurora-1)","蝦":"var(--aurora-3)","爬蟲":"var(--aurora-2)"};
+let raw = null, charts = {};
+let conservationActiveTab = "period";
+let yearFromVal = null, yearToVal = null;
+
+function cssVar(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+function auroraPalette(){ return ["--aurora-1","--aurora-2","--aurora-3","--aurora-4","--aurora-5","--aurora-6","--aurora-7","--aurora-8","--aurora-9"].map(cssVar); }
+function categoryColor(c){ const v = CATEGORY_COLORS[c]; return v ? cssVar(v.replace(/^var\(|\)$/g,"")) : auroraPalette()[0]; }
+function withAlpha(hex, alpha){ return hex && hex.startsWith("#") ? hex + alpha : hex; }
+function fmtNum(n){ return n==null ? "—" : Number(n).toLocaleString("zh-TW"); }
+function gridColor(){ return cssVar('--line-grid'); }
+function inkColor(){ return cssVar('--ink-dim'); }
+function yearRangeArray(f){ const arr=[]; for(let y=f.yf; y<=f.yt; y++) arr.push(y); return arr; }
+
+function showToast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(()=>t.classList.remove("show"), 3200);
+}
+
+window.addEventListener("error", (e)=>{
+  console.error("[global error]", e.error || e.message, e.filename, e.lineno);
+  showToast("發生錯誤：" + (e.message || "未知錯誤") + "（已記錄到主控台）");
+});
+window.addEventListener("unhandledrejection", (e)=>{
+  const msg = e.reason && e.reason.message ? e.reason.message : String(e.reason);
+  console.error("[unhandled rejection]", e.reason);
+  showToast("發生錯誤：" + msg);
+});
+
+async function copyText(text){
+  try{
+    await navigator.clipboard.writeText(text);
+    showToast("已複製到剪貼簿");
+    return;
+  }catch(e){ /* fall through to legacy path */ }
+  try{
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+    showToast("已複製到剪貼簿");
+  }catch(e2){
+    showToast("複製失敗，請手動選取文字");
+  }
+}
+
+function toCSV(rows, columns){
+  const esc = v => {
+    if(v === null || v === undefined) return "";
+    const s = String(v);
+    return /[",\n]/.test(s) ? '"' + s.replace(/"/g,'""') + '"' : s;
+  };
+  const header = columns.map(c=>c.label).join(",");
+  const body = rows.map(r => columns.map(c=>esc(c.format ? c.format(r[c.key]) : r[c.key])).join(","));
+  return [header, ...body].join("\n");
+}
+
+function runSafe(fn, label){
+  try{ fn(); }
+  catch(e){
+    console.error("[render error]", label, e);
+    showToast("圖表更新發生錯誤（" + label + "）：" + (e && e.message ? e.message : e));
+  }
+}
+
+function baseOptions(extra){
+  const opts = {
+    responsive:true, maintainAspectRatio:false, animation:{duration:280},
+    plugins:{ legend:{ labels:{ color: inkColor(), font:{family:"Public Sans"} } } },
+    scales:{
+      x:{ grid:{color:gridColor()}, ticks:{color:inkColor()} },
+      y:{ grid:{color:gridColor()}, ticks:{color:inkColor()} },
+    }
+  };
+  if(extra){
+    Object.keys(extra).forEach(k=>{
+      if(k === "plugins"){ opts.plugins = Object.assign({}, opts.plugins, extra.plugins); }
+      else if(k === "scales"){
+        // merge one level deeper so e.g. {scales:{x:{stacked:true}}} keeps the
+        // grid/ticks styling set above instead of replacing the whole axis config
+        opts.scales = {
+          x: Object.assign({}, opts.scales.x, extra.scales.x),
+          y: Object.assign({}, opts.scales.y, extra.scales.y),
+        };
+      }
+      else{ opts[k] = extra[k]; }
+    });
+  }
+  return opts;
+}
+
+// Create a chart once per canvas id, then update its data/options in place on
+// every later call instead of destroying and recreating it -- avoids any
+// "canvas already in use" failure and gives smooth animated transitions.
+function upsertChart(id, canvasEl, config){
+  const existing = charts[id];
+  if(existing){
+    existing.data.labels = config.data.labels;
+    existing.data.datasets = config.data.datasets;
+    existing.options = config.options;
+    existing.update();
+  }else{
+    charts[id] = new Chart(canvasEl, config);
+  }
+}
+
+function currentFilters(){
+  return { yf: yearFromVal, yt: yearToVal,
+    cat: document.getElementById("categorySelect").value,
+    station: document.getElementById("stationSelect").value };
+}
+
+function filteredRows(){
+  const f = currentFilters();
+  return raw.species_count.filter(r =>
+    r.year >= f.yf && r.year <= f.yt &&
+    (!f.cat || r.category === f.cat) &&
+    (!f.station || r.station === f.station)
+  );
+}
+
+let ALL_SURVEY_DATES = 0;
+
+function renderKPIs(){
+  const f = currentFilters();
+  const rows = filteredRows();
+  const speciesCount = new Set(rows.map(r=>r.species_name_latin).filter(Boolean)).size;
+  const stationCount = new Set(rows.map(r=>r.station).filter(Boolean)).size;
+  const totalIndividuals = rows.reduce((a,r)=>a+(r.count||0),0);
+  const surveyDates = new Set(rows.map(r=>r.survey_date).filter(Boolean)).size;
+  const pct = ALL_SURVEY_DATES ? Math.round((surveyDates/ALL_SURVEY_DATES)*1000)/10 : 0;
+  const items = [
+    {label:"調查日數（篩選後）", value: fmtNum(surveyDates), sub:`佔全部 ${fmtNum(ALL_SURVEY_DATES)} 個調查日的 ${pct}%`},
+    {label:"物種數（篩選後）", value: fmtNum(speciesCount)},
+    {label:"測站數（篩選後）", value: fmtNum(stationCount)},
+    {label:"年度範圍", value: `${f.yf}–${f.yt}`},
+    {label:"累計個體數", value: fmtNum(totalIndividuals)},
+  ];
+  document.getElementById("kpis").innerHTML = items.map(k =>
+    `<div class="kpi"><div class="label">${k.label}</div><div class="value">${k.value}</div>${k.sub?`<div class="kpi-sub">${k.sub}</div>`:""}</div>`).join("");
+  const s = raw.summary;
+  document.getElementById("metaLine").textContent = `全資料集 ${s.min_year}–${s.max_year}（共 ${fmtNum(ALL_SURVEY_DATES)} 個調查日）`;
+  document.getElementById("metaLine2").textContent = `以上 KPI 會隨左側「年度／分類／測站」篩選即時更新；全資料集涵蓋 ${s.min_year}–${s.max_year}，共 ${fmtNum(ALL_SURVEY_DATES)} 個調查日、${fmtNum(s.species_count)} 種、${fmtNum(s.station_count)} 個測站。`;
+}
+
+// Years where the number of distinct survey dates is well below the typical
+// count (e.g. the current year still in progress) get flagged here, since a
+// year that simply has fewer completed surveys will show a lower total on
+// every trend chart without that meaning the ecology actually declined.
+function computePartialYearNote(){
+  const byYear = {};
+  raw.species_count.forEach(r=>{
+    byYear[r.year] = byYear[r.year] || new Set();
+    if(r.survey_date) byYear[r.year].add(r.survey_date);
+  });
+  const years = Object.keys(byYear).map(Number).sort((a,b)=>a-b);
+  if(years.length < 2) return null;
+  const lastYear = years[years.length-1];
+  const priorCounts = years.slice(0,-1).map(y=>byYear[y].size);
+  const typical = Math.round(priorCounts.reduce((a,b)=>a+b,0) / priorCounts.length);
+  const lastCount = byYear[lastYear].size;
+  if(typical > 0 && lastCount < typical * 0.85){
+    return `提醒：${lastYear} 年目前只有 ${lastCount} 次調查日（其餘年度平均約 ${typical} 次），這一年的資料還不完整。` +
+      `下方趨勢圖若顯示 ${lastYear} 年下降，有一部分可能只是「這一年還沒調查完」，不代表生態量真的減少。`;
+  }
+  return null;
+}
+
+function renderCategoryTrend(){
+  // "物種組成歷年趨勢": a pure category-level total hides which species are
+  // actually driving it (one species can boom while others decline and the
+  // sum looks flat) -- so this stacks the top species instead of category sums.
+  const f = currentFilters();
+  const rows = filteredRows();
+  const years = yearRangeArray(f);
+  const totals = {};
+  rows.forEach(r=>{
+    if(!r.species_name_latin) return;
+    totals[r.species_name_latin] = (totals[r.species_name_latin]||0) + (r.count||0);
+  });
+  const TOP_N = 8;
+  const topLatin = Object.entries(totals).sort((a,b)=>b[1]-a[1]).slice(0,TOP_N).map(([k])=>k);
+  const topSet = new Set(topLatin);
+  const zhOf = {};
+  rows.forEach(r=>{ if(r.species_name_latin) zhOf[r.species_name_latin] = r.species_name_zh; });
+  const pal = auroraPalette();
+  const datasets = topLatin.map((latin,i)=>({
+    label: zhOf[latin] || latin, backgroundColor: pal[i % pal.length],
+    data: years.map(y => rows.filter(r=>r.year===y && r.species_name_latin===latin).reduce((a,r)=>a+(r.count||0),0)),
+  }));
+  const otherData = years.map(y => rows.filter(r=>r.year===y && r.species_name_latin && !topSet.has(r.species_name_latin)).reduce((a,r)=>a+(r.count||0),0));
+  if(otherData.some(v=>v>0)){
+    datasets.push({ label:"其他物種", backgroundColor: cssVar("--ink-dim")+"55", data: otherData });
+  }
+  upsertChart("cat", document.getElementById("chartCategory"), {
+    type:"bar", data:{labels:years, datasets},
+    options: baseOptions({ scales:{ x:{stacked:true}, y:{stacked:true} } })
+  });
+}
+
+function renderStationTrend(){
+  // stacked by station rather than separate lines, so the chart shows both the
+  // total and which station is driving it in the same view.
+  const f = currentFilters();
+  const rows = filteredRows().filter(r=>r.station);
+  const years = yearRangeArray(f);
+  const stations = [...new Set(rows.map(r=>r.station))];
+  const pal = auroraPalette();
+  const datasets = stations.map((st,i)=>({
+    label: st, backgroundColor: pal[i % pal.length],
+    data: years.map(y => rows.filter(r=>r.year===y && r.station===st).reduce((a,r)=>a+(r.count||0),0)),
+  }));
+  upsertChart("station", document.getElementById("chartStation"), {
+    type:"bar", data:{labels:years, datasets},
+    options: baseOptions({ scales:{ x:{stacked:true}, y:{stacked:true} } })
+  });
+}
+
+function renderTopSpecies(){
+  const rows = filteredRows();
+  const agg = {};
+  rows.forEach(r=>{
+    if(!r.species_name_latin) return;
+    const key = r.species_name_latin;
+    agg[key] = agg[key] || {zh:r.species_name_zh, total:0};
+    agg[key].total += (r.count||0);
+  });
+  const top = Object.entries(agg).sort((a,b)=>b[1].total-a[1].total).slice(0,15);
+  upsertChart("top", document.getElementById("chartTop"), {
+    type:"bar",
+    data:{ labels: top.map(([k,v])=>v.zh||k), datasets:[{ label:"累計數量", data: top.map(([,v])=>v.total), backgroundColor:cssVar("--aurora-1") }] },
+    options: baseOptions({ indexAxis:"y", plugins:{legend:{display:false}} })
+  });
+}
+
+function refreshSpeciesOptions(){
+  const f = currentFilters();
+  const spSel = document.getElementById("speciesSelect");
+  const prev = spSel.value;
+  const pool = raw.species_count.filter(r =>
+    r.species_name_latin && (!f.cat || r.category===f.cat) && (!f.station || r.station===f.station));
+  const map = {};
+  pool.forEach(r=>{ map[r.species_name_latin] = r.species_name_zh; });
+  const entries = Object.entries(map).sort((a,b)=>(a[1]||a[0]).localeCompare(b[1]||b[0],'zh-Hant'));
+  spSel.innerHTML = `<option value="">請選擇物種（符合目前分類／測站篩選，共 ${entries.length} 種）</option>` +
+    entries.map(([latin,zh])=>`<option value="${latin}">${zh||latin}</option>`).join("");
+  spSel.value = entries.some(([latin])=>latin===prev) ? prev : "";
+}
+
+function renderSpeciesTrend(){
+  const sp = document.getElementById("speciesSelect").value;
+  const f = currentFilters();
+  const spRow = sp ? raw.species_count.find(r=>r.species_name_latin===sp) : null;
+  document.getElementById("speciesHint").textContent = sp
+    ? `${spRow && spRow.species_name_zh ? spRow.species_name_zh + "　" : ""}${sp}`
+    : "從上方選擇一個物種";
+  const years = yearRangeArray(f);
+  const rows = sp ? raw.species_count.filter(r=>
+    r.species_name_latin===sp && r.year>=f.yf && r.year<=f.yt && (!f.station || r.station===f.station)
+  ) : [];
+  const data = years.map(y => rows.filter(r=>r.year===y).reduce((a,r)=>a+(r.count||0),0));
+  const col = cssVar("--aurora-1");
+  upsertChart("species", document.getElementById("chartSpecies"), {
+    type:"line",
+    data:{labels:years, datasets: sp ? [{label:sp, data, borderColor:col, backgroundColor: withAlpha(col,"26"), fill:true, tension:.3, pointRadius:3}] : []},
+    options: baseOptions({plugins:{legend:{display:false}}})
+  });
+}
+
+function renderWaterQuality(){
+  const rows = raw.water_quality;
+  const pal = auroraPalette();
+  upsertChart("wq", document.getElementById("chartWQ"), {
+    type:"line",
+    data:{ labels: rows.map(r=>r.sample_date),
+      datasets:[
+        {label:"水溫(℃)", data: rows.map(r=>r.water_temp_c), borderColor:pal[0], fill:false, spanGaps:true, tension:.25},
+        {label:"pH", data: rows.map(r=>r.ph), borderColor:pal[1], fill:false, spanGaps:true, tension:.25},
+        {label:"溶氧(mg/L)", data: rows.map(r=>r.dissolved_oxygen_mgl), borderColor:pal[2], fill:false, spanGaps:true, tension:.25},
+        {label:"BOD(mg/L)", data: rows.map(r=>r.bod_mgl), borderColor:pal[3], fill:false, spanGaps:true, tension:.25},
+      ]},
+    options: baseOptions()
+  });
+}
+
+// The 特有保育表 source data is 29 separate period blocks (2019 -> 2026), each an
+// independent statistical window that often overlaps others (a year can have a
+// 1~3月, a 1~6月 AND a 全年 block) -- so this always shows exactly ONE selected
+// period in full, never a slice across periods, to avoid double-counting.
+function conservationPeriods(){
+  const seen = [];
+  raw.conservation.forEach(r=>{ if(r.period_label && !seen.includes(r.period_label)) seen.push(r.period_label); });
+  return seen;
+}
+
+// Species list narrows to whatever is actually present in the currently
+// selected period (periods don't all contain the same species), same pattern
+// as the global species picker narrowing by category/station.
+function refreshConservationSpeciesOptions(){
+  const period = document.getElementById("periodSelect").value;
+  const spSel = document.getElementById("conservationSpeciesSelect");
+  const prev = spSel.value;
+  const names = [...new Set(raw.conservation.filter(r=>r.period_label === period && r.species_name_latin).map(r=>r.species_name_latin))]
+    .sort((a,b)=>a.localeCompare(b,'zh-Hant'));
+  spSel.innerHTML = `<option value="">全部物種（${names.length} 種）</option>` +
+    names.map(n=>`<option value="${n}">${n}</option>`).join("");
+  spSel.value = names.includes(prev) ? prev : "";
+}
+
+function conservationFilteredRows(){
+  const period = document.getElementById("periodSelect").value;
+  const species = document.getElementById("conservationSpeciesSelect").value;
+  return raw.conservation.filter(r=>r.period_label === period && (!species || r.species_name_latin === species));
+}
+
+function renderConservation(){
+  const rows = conservationFilteredRows();
+  document.getElementById("conservationCount").textContent = `${fmtNum(rows.length)} 筆`;
+  document.getElementById("conservationBody").innerHTML = rows.map(r=>{
+    const endemicPill = r.endemic_status && r.endemic_status !== "-" ? `<span class="pill endemic">${r.endemic_status}</span>` : (r.endemic_status||"");
+    const orderFamily = [r.order_name, r.family_name].filter(Boolean).join(" / ");
+    return `<tr><td>${orderFamily}</td><td>${r.species_name_latin||""}</td><td>${endemicPill}</td><td>${r.conservation_grade||""}</td>` +
+      `<td class="num">${fmtNum(r.station_upstream)}</td><td class="num">${fmtNum(r.station_fishway)}</td>` +
+      `<td class="num">${fmtNum(r.station_fishway_entrance)}</td><td class="num">${fmtNum(r.station_downstream)}</td>` +
+      `<td class="num">${fmtNum(r.total)}</td></tr>`;
+  }).join("");
+}
+
+// "不分期間" view: one row per YEAR instead of one row per period block. Periods
+// within a year overlap (1~3月/1~6月/全年 etc.), so this never sums them -- it
+// always picks exactly one period per year: the 全年／1~12月 block when the year
+// has one (2019-2025 all do), otherwise the latest available block for a year
+// still in progress (currently 2026), clearly marked as not yet complete.
+function conservationYearOf(periodLabel){
+  const m = periodLabel.match(/(\d{4})/);
+  return m ? parseInt(m[1], 10) : null;
+}
+function canonicalYearPeriods(){
+  const byYear = {};
+  conservationPeriods().forEach(p=>{
+    const y = conservationYearOf(p);
+    if(y == null) return;
+    (byYear[y] = byYear[y] || []).push(p);
+  });
+  const result = {};
+  Object.keys(byYear).forEach(yStr=>{
+    const y = Number(yStr);
+    const list = byYear[y];
+    const full = list.find(p => p.includes("全年") || p.replace(/\s+/g,"").includes("1~12月"));
+    result[y] = full ? {period: full, isFull: true} : {period: list[list.length-1], isFull: false};
+  });
+  return result;
+}
+function conservationYearlyRows(){
+  const f = currentFilters();
+  const canon = canonicalYearPeriods();
+  const years = Object.keys(canon).map(Number).filter(y=>y>=f.yf && y<=f.yt).sort((a,b)=>a-b);
+  const out = [];
+  years.forEach(y=>{
+    const {period, isFull} = canon[y];
+    raw.conservation.filter(r=>r.period_label===period).forEach(r=> out.push(Object.assign({}, r, {year:y, year_complete: isFull})));
+  });
+  return out;
+}
+function renderConservationYearly(){
+  const rows = conservationYearlyRows();
+  const years = [...new Set(rows.map(r=>r.year))];
+  document.getElementById("conservationYearlyCount").textContent = years.length
+    ? `${fmtNum(rows.length)} 筆（${years[0]}–${years[years.length-1]} 年，共 ${years.length} 年）`
+    : "目前年度範圍內沒有資料";
+  document.getElementById("conservationYearlyBody").innerHTML = rows.map(r=>{
+    const endemicPill = r.endemic_status && r.endemic_status !== "-" ? `<span class="pill endemic">${r.endemic_status}</span>` : (r.endemic_status||"");
+    const orderFamily = [r.order_name, r.family_name].filter(Boolean).join(" / ");
+    const yearLabel = r.year_complete ? `${r.year}` : `${r.year}（尚未結束）`;
+    return `<tr><td>${yearLabel}</td><td>${orderFamily}</td><td>${r.species_name_latin||""}</td><td>${endemicPill}</td><td>${r.conservation_grade||""}</td>` +
+      `<td class="num">${fmtNum(r.station_upstream)}</td><td class="num">${fmtNum(r.station_fishway)}</td>` +
+      `<td class="num">${fmtNum(r.station_fishway_entrance)}</td><td class="num">${fmtNum(r.station_downstream)}</td>` +
+      `<td class="num">${fmtNum(r.total)}</td></tr>`;
+  }).join("");
+}
+
+function renderFilteredExport(){
+  const rows = filteredRows();
+  document.getElementById("filteredCount").textContent = `${fmtNum(rows.length)} 筆符合條件`;
+}
+
+const SPECIES_COLUMNS = [
+  {key:"year",label:"年度"},{key:"survey_date",label:"日期"},{key:"station",label:"測站"},
+  {key:"species_name_zh",label:"物種(中)"},{key:"species_name_latin",label:"物種學名"},
+  {key:"category",label:"分類",format:categoryLabel},{key:"order_name",label:"目"},{key:"family_name",label:"科"},
+  {key:"trait",label:"特性"},{key:"habitat",label:"水域"},{key:"count",label:"數量"},
+];
+const CONSERVATION_COLUMNS = [
+  {key:"period_label",label:"期間"},{key:"order_name",label:"目"},{key:"family_name",label:"科"},
+  {key:"species_name_latin",label:"物種學名"},{key:"endemic_status",label:"特有性"},
+  {key:"conservation_grade",label:"保育等級"},{key:"station_upstream",label:"上游"},{key:"station_fishway",label:"魚道"},
+  {key:"station_fishway_entrance",label:"魚道入口"},{key:"station_downstream",label:"下游"},{key:"total",label:"總計"},
+];
+const CONSERVATION_YEARLY_COLUMNS = [{key:"year",label:"年度"}, ...CONSERVATION_COLUMNS];
+const WQ_COLUMNS = [
+  {key:"sample_date",label:"採樣日期"},{key:"air_temp_c",label:"氣溫"},{key:"water_temp_c",label:"水溫"},
+  {key:"ph",label:"pH"},{key:"conductivity_umho_cm25c",label:"導電度"},{key:"dissolved_oxygen_mgl",label:"溶氧"},
+  {key:"bod_mgl",label:"BOD"},{key:"cod_mgl",label:"COD"},{key:"ss_mgl",label:"SS"},
+];
+const HOSP_COLUMNS = [
+  {key:"capture_date",label:"捕獲日期"},{key:"station",label:"測站"},{key:"body_length_cm",label:"體長(cm)"},
+  {key:"total_length_cm",label:"全長(cm)"},{key:"weight_g",label:"體重(g)"},
+];
+
+// ---- data-inspection modal ----
+let modalAllRows = [], modalCurrentColumns = [], modalFiltered = [];
+function cellVal(r,c){ const v = c.format ? c.format(r[c.key]) : r[c.key]; return v; }
+function renderModalRows(rows, columns){
+  modalFiltered = rows;
+  const CAP = 2000;
+  const capped = rows.slice(0, CAP);
+  document.getElementById("modalBody").innerHTML = capped.map(r=>
+    "<tr>" + columns.map(c=>{
+      const v = cellVal(r,c);
+      const cls = typeof r[c.key] === "number" ? ' class="num"' : "";
+      return `<td${cls}>${v==null?"":v}</td>`;
+    }).join("") + "</tr>"
+  ).join("");
+  // The CAP only limits how many rows are rendered into the HTML table (for
+  // scroll performance) -- "複製全部符合條件資料為 CSV" always copies every row
+  // in `rows` (the full filtered/searched set), not just what's drawn on screen.
+  document.getElementById("modalCount").textContent = rows.length > CAP
+    ? `畫面顯示前 ${fmtNum(CAP)} 筆／共 ${fmtNum(rows.length)} 筆（僅表格預覽有上限，「複製為CSV」仍會複製全部 ${fmtNum(rows.length)} 筆）`
+    : `共 ${fmtNum(rows.length)} 筆`;
+}
+function openDataModal(title, rows, columns){
+  modalAllRows = rows; modalCurrentColumns = columns;
+  document.getElementById("modalTitle").textContent = title;
+  document.getElementById("modalHeadRow").innerHTML = columns.map(c=>`<th>${c.label}</th>`).join("");
+  document.getElementById("modalSearch").value = "";
+  renderModalRows(rows, columns);
+  const overlay = document.getElementById("modalOverlay");
+  overlay.hidden = false;
+  document.body.style.overflow = "hidden";
+  setTimeout(()=> document.getElementById("modalSearch").focus(), 0);
+}
+function closeModal(){
+  document.getElementById("modalOverlay").hidden = true;
+  document.body.style.overflow = "";
+}
+function initModal(){
+  document.getElementById("modalSearch").addEventListener("input", (e)=>{
+    const q = e.target.value.trim().toLowerCase();
+    if(!q){ renderModalRows(modalAllRows, modalCurrentColumns); return; }
+    const filtered = modalAllRows.filter(r => modalCurrentColumns.some(c=>{
+      const v = cellVal(r,c);
+      return v!=null && String(v).toLowerCase().includes(q);
+    }));
+    renderModalRows(filtered, modalCurrentColumns);
+  });
+  document.getElementById("modalCopyBtn").addEventListener("click", ()=> copyText(toCSV(modalFiltered, modalCurrentColumns)));
+  document.getElementById("modalCloseBtn").addEventListener("click", closeModal);
+  document.getElementById("modalOverlay").addEventListener("click", (e)=>{ if(e.target.id==="modalOverlay") closeModal(); });
+  document.addEventListener("keydown", (e)=>{ if(e.key==="Escape" && !document.getElementById("modalOverlay").hidden) closeModal(); });
+}
+
+function setupRawDataButtons(){
+  const defs = [
+    {label:"物種調查紀錄（全量）", rows: raw.species_count, cols: SPECIES_COLUMNS},
+    {label:"特有保育類紀錄", rows: raw.conservation, cols: CONSERVATION_COLUMNS},
+    {label:"水質監測", rows: raw.water_quality, cols: WQ_COLUMNS},
+    {label:"何氏棘鲃量測", rows: raw.specimen, cols: HOSP_COLUMNS},
+  ];
+  const wrap = document.getElementById("rawDataButtons");
+  wrap.innerHTML = "";
+  defs.forEach(d=>{
+    const btn = document.createElement("button");
+    btn.className = "btn"; btn.textContent = "查看／搜尋：" + d.label;
+    btn.addEventListener("click", ()=> openDataModal(d.label, d.rows, d.cols));
+    wrap.appendChild(btn);
+  });
+}
+
+function renderPartialYearNote(){
+  const note = document.getElementById("partialYearNote");
+  const msg = computePartialYearNote();
+  if(msg){ note.textContent = msg; note.hidden = false; }
+  else{ note.hidden = true; note.textContent = ""; }
+}
+
+function refreshAll(){
+  runSafe(renderKPIs, "總覽KPI");
+  runSafe(renderPartialYearNote, "資料完整度提醒");
+  runSafe(renderCategoryTrend, "物種組成趨勢");
+  runSafe(renderStationTrend, "測站組成趨勢");
+  runSafe(renderTopSpecies, "物種排行");
+  runSafe(renderSpeciesTrend, "物種趨勢");
+  runSafe(renderConservationYearly, "保育紀錄(不分期間)");
+  runSafe(renderFilteredExport, "篩選結果匯出");
+}
+
+function initTheme(){
+  const btn = document.getElementById("themeToggle");
+  let saved = null;
+  try{ saved = localStorage.getItem("theme"); }catch(e){}
+  if(saved === "light" || saved === "dark"){ document.documentElement.setAttribute("data-theme", saved); }
+  const isDarkNow = () => {
+    const explicit = document.documentElement.getAttribute("data-theme");
+    if(explicit) return explicit === "dark";
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  };
+  const sync = () => { btn.textContent = isDarkNow() ? "🌙" : "☀️"; };
+  sync();
+  btn.addEventListener("click", ()=>{
+    const next = isDarkNow() ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try{ localStorage.setItem("theme", next); }catch(e){}
+    sync();
+    runSafe(()=>{ refreshAll(); renderWaterQuality(); }, "主題切換重繪");
+  });
+}
+
+function initYearSlider(minY, maxY){
+  yearFromVal = minY; yearToVal = maxY;
+  const el = document.getElementById("yearSlider");
+  const label = document.getElementById("yearRangeValue");
+  label.textContent = `${minY} – ${maxY}`;
+  if(!(window.noUiSlider && el)){
+    // library failed to load (offline / CDN blocked): fall back to full range, charts still work
+    console.error("noUiSlider unavailable, year filter fixed to full range");
+    return;
+  }
+  noUiSlider.create(el, {
+    start: [minY, maxY],
+    connect: true,
+    step: 1,
+    range: { min: minY, max: maxY },
+    behaviour: "drag-tap",
+  });
+  let raf = null;
+  el.noUiSlider.on("update", (values)=>{
+    yearFromVal = Math.round(values[0]);
+    yearToVal = Math.round(values[1]);
+    label.textContent = `${yearFromVal} – ${yearToVal}`;
+    if(raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(refreshAll);
+  });
+}
+
+async function init(){
+  try{
+    const res = await fetch("data.json");
+    raw = await res.json();
+  }catch(e){
+    document.querySelector(".wrap").innerHTML = '<div class="loading">資料載入失敗，請重新整理頁面。</div>';
+    console.error(e);
+    return;
+  }
+
+  initTheme();
+  initModal();
+
+  ALL_SURVEY_DATES = new Set(raw.species_count.map(r=>r.survey_date).filter(Boolean)).size;
+
+  const years = [...new Set(raw.species_count.map(r=>r.year))].sort((a,b)=>a-b);
+  initYearSlider(years[0], years[years.length-1]);
+
+  const catSel = document.getElementById("categorySelect");
+  orderCategories(raw.species_count.map(r=>r.category)).forEach(c =>
+    catSel.innerHTML += `<option value="${c}">${categoryLabel(c)}</option>`);
+
+  const stations = [...new Set(raw.species_count.map(r=>r.station))].filter(Boolean).sort();
+  const stSel = document.getElementById("stationSelect");
+  stations.forEach(s => stSel.innerHTML += `<option value="${s}">${s}</option>`);
+
+  refreshSpeciesOptions();
+
+  catSel.addEventListener("change", ()=>{ refreshSpeciesOptions(); refreshAll(); });
+  stSel.addEventListener("change", ()=>{ refreshSpeciesOptions(); refreshAll(); });
+  document.getElementById("speciesSelect").addEventListener("change", ()=> runSafe(renderSpeciesTrend, "物種趨勢"));
+
+  document.getElementById("copyFilteredBtn").addEventListener("click", ()=>{
+    copyText(toCSV(filteredRows(), SPECIES_COLUMNS));
+  });
+  document.getElementById("viewFilteredBtn").addEventListener("click", ()=>{
+    openDataModal("目前篩選結果明細", filteredRows(), SPECIES_COLUMNS);
+  });
+
+  setupRawDataButtons();
+
+  const periodSel = document.getElementById("periodSelect");
+  const periods = conservationPeriods();
+  periods.forEach(p => periodSel.innerHTML += `<option value="${p}">${p}</option>`);
+  if(periods.length) periodSel.value = periods[periods.length - 1];
+  refreshConservationSpeciesOptions();
+  periodSel.addEventListener("change", ()=> runSafe(()=>{ refreshConservationSpeciesOptions(); renderConservation(); }, "保育紀錄"));
+  document.getElementById("conservationSpeciesSelect").addEventListener("change", ()=> runSafe(renderConservation, "保育紀錄"));
+
+  document.querySelectorAll("#conservationTabs .tab-btn").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      conservationActiveTab = btn.dataset.tab;
+      document.querySelectorAll("#conservationTabs .tab-btn").forEach(b=> b.classList.toggle("active", b===btn));
+      document.getElementById("conservationPeriodPanel").hidden = conservationActiveTab !== "period";
+      document.getElementById("conservationYearlyPanel").hidden = conservationActiveTab !== "yearly";
+    });
+  });
+
+  // Per-card "原始資料" links: each opens the raw rows actually behind that
+  // specific chart, scoped the same way the chart itself is scoped, so a
+  // suspicious-looking data point (e.g. a one-off 模組式測站 reading) can be
+  // checked right next to the chart that shows it.
+  const linkBtn = (id, handler) => { const el = document.getElementById(id); if(el) el.addEventListener("click", handler); };
+  linkBtn("catTrendDataBtn", ()=> openDataModal("物種組成歷年趨勢－原始資料", filteredRows(), SPECIES_COLUMNS));
+  linkBtn("stationTrendDataBtn", ()=> openDataModal("測站組成歷年趨勢－原始資料", filteredRows(), SPECIES_COLUMNS));
+  linkBtn("topSpeciesDataBtn", ()=> openDataModal("物種數量排行－原始資料", filteredRows(), SPECIES_COLUMNS));
+  linkBtn("speciesTrendDataBtn", ()=>{
+    const sp = document.getElementById("speciesSelect").value;
+    if(!sp){ showToast("請先選擇一個物種"); return; }
+    const rows = filteredRows().filter(r=>r.species_name_latin === sp);
+    openDataModal("單一物種歷年趨勢－原始資料", rows, SPECIES_COLUMNS);
+  });
+  linkBtn("wqDataBtn", ()=> openDataModal("南雲大橋水質監測－原始資料", raw.water_quality, WQ_COLUMNS));
+  linkBtn("conservationDataBtn", ()=>{
+    if(conservationActiveTab === "yearly"){
+      const f = currentFilters();
+      openDataModal(`特有保育類物種紀錄－原始資料（不分期間，${f.yf}–${f.yt}年）`, conservationYearlyRows(), CONSERVATION_YEARLY_COLUMNS);
+      return;
+    }
+    const period = document.getElementById("periodSelect").value;
+    const species = document.getElementById("conservationSpeciesSelect").value;
+    const label = species ? `${period}・${species}` : period;
+    openDataModal(`特有保育類物種紀錄－原始資料（${label}）`, conservationFilteredRows(), CONSERVATION_COLUMNS);
+  });
+
+  refreshAll();
+  renderWaterQuality();
+  renderConservation();
+}
+
+init();
+</script>

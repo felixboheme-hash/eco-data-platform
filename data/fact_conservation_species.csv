@@ -1,0 +1,817 @@
+period_label,order_name,family_name,species_name_latin,endemic_status,conservation_grade,station_upstream,station_fishway,station_fishway_entrance,station_downstream,total
+2019 1~12月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,1,4,1,6
+2019 1~12月,,,鱸鰻 Anguilla marmorata,-,,,,2,,2
+2019 1~12月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,176,19,9,9,213
+2019 1~12月,,,台灣馬口魚 Candidia barbata,◎,,,,2,,2
+2019 1~12月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,75,28,14,47,164
+2019 1~12月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,26,24,39,20,109
+2019 1~12月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,140,37,81,94,352
+2019 1~12月,,,陳氏鰍鮀 Gobiobotia cheni,◎,,,,6,36,42
+2019 1~12月,,,臺灣白甲魚 Onychostoma barbatulum,-,,,2,3,2,7
+2019 1~12月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,,2,,,2
+2019 1~12月,,,鯽魚 Carassius auratus ,-,,8,24,8,12,52
+2019 1~12月,,,鯉 Cyprinus carpio,-,,,2,,4,6
+2019 1~12月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,75,3,12,17,107
+2019 1~12月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,75,20,12,1,108
+2019 1~12月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,,4,7,5,16
+2019 1~12月,,鯰科 Siluridae,鯰 Parasilurus asotus,-,,,7,3,2,12
+2019 1~12月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,5,1,5,4,15
+2019 1~12月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,7,5,10,16,38
+2019 1~12月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,10,2,11,21,44
+2019 1~12月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,1,8,3,12
+2019 1~12月,,,極樂吻鰕虎魚 Rhinogobius giurinus,-,,,,1,1,2
+2019 1~12月,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,,,2,1,3
+2019 1~12月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,1,442,144,78,665
+2019 1~12月,,,台灣沼蝦 Macrobrachium formosense,-,,1,12,18,12,43
+2019 1~12月,,,粗糙沼蝦 Macrobrachium asperulum,-,,8,22,170,89,289
+2019 1~12月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,5,4,31,12,52
+2019 1~12月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,4,2,,6
+2019 1~12月,龜鱉目  Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,1,,,2,3
+2020 1~3月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,1,,1
+2020 1~3月,,,鱸鰻 Anguilla marmorata,-,,,,1,,1
+2020 1~3月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,110,6,1,1,118
+2020 1~3月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,25,1,3,11,40
+2020 1~3月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,1,8,3,5,17
+2020 1~3月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,28,38,11,18,95
+2020 1~3月,,,陳氏鰍鮀 Gobiobotia cheni,◎,,,11,,4,15
+2020 1~3月,,,臺灣白甲魚 Onychostoma barbatulum,-,,5,,,,5
+2020 1~3月,,,鯽魚 Carassius auratus ,-,,,16,12,,28
+2020 1~3月,,,鯉 Cyprinus carpio,-,,,2,,,2
+2020 1~3月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,34,6,1,,41
+2020 1~3月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,64,8,3,,75
+2020 1~3月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,,8,11,,19
+2020 1~3月,,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,,,1,,1
+2020 1~3月,,,鯰 Parasilurus asotus,-,,,3,4,,7
+2020 1~3月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,11,1,7,,19
+2020 1~3月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,1,2,9,2,14
+2020 1~3月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,9,,1,1,11
+2020 1~3月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,,1,1,2
+2020 1~3月,,,極樂吻鰕虎魚 Rhinogobius giurinus,-,,,,1,,1
+2020 1~3月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,18,35,41,1,95
+2020 1~3月,,,台灣沼蝦 Macrobrachium formosense,-,,,1,3,,4
+2020 1~3月,,,粗糙沼蝦 Macrobrachium asperulum,-,,19,26,91,13,149
+2020 1~3月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,,2,10,9,21
+2020 1~6月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,1,,1
+2020 1~6月,,,鱸鰻 Anguilla marmorata,-,,,,1,,1
+2020 1~6月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,182,6,2,1,191
+2020 1~6月,,,台灣馬口魚 Candidia barbata,◎,,,1,,,1
+2020 1~6月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,47,3,5,13,68
+2020 1~6月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,2,18,7,15,42
+2020 1~6月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,51,56,19,56,182
+2020 1~6月,,,陳氏鰍鮀 Gobiobotia cheni,◎,,,14,1,17,32
+2020 1~6月,,,臺灣白甲魚 Onychostoma barbatulum,-,,5,,,,5
+2020 1~6月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,5,,,,5
+2020 1~6月,,,鯽魚 Carassius auratus ,-,,2,18,17,2,39
+2020 1~6月,,,鯉 Cyprinus carpio,-,,,2,1,,3
+2020 1~6月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,45,6,1,,52
+2020 1~6月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,66,8,3,,77
+2020 1~6月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,1,9,12,,22
+2020 1~6月,,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,,,1,,1
+2020 1~6月,,,鯰 Parasilurus asotus,-,,2,4,5,,11
+2020 1~6月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,16,1,7,,24
+2020 1~6月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,2,2,12,9,25
+2020 1~6月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,15,3,1,1,20
+2020 1~6月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,1,,1,1,3
+2020 1~6月,,,極樂吻鰕虎魚 Rhinogobius giurinus,-,,,,2,,2
+2020 1~6月,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,,,1,,1
+2020 1~6月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,31,35,43,2,111
+2020 1~6月,,,台灣沼蝦 Macrobrachium formosense,-,,,1,6,,7
+2020 1~6月,,,粗糙沼蝦 Macrobrachium asperulum,-,,33,27,128,23,211
+2020 1~6月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,,2,22,11,35
+2020 1~6月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,2,,,2
+2020 1~6月,龜鱉目  Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,,,,1,1
+2020 1~6月,,地龜科 Geoemydidae,斑龜 Mauremys sinensis,-,,,,,1,1
+2020 7~9月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,3,,3
+2020 7~9月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,6,11,1,,18
+2020 7~9月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,24,8,16,13,61
+2020 7~9月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,1,30,17,17,65
+2020 7~9月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,7,22,212,58,299
+2020 7~9月,,,陳氏鰍鮀 Gobiobotia cheni,◎,,,,1,14,15
+2020 7~9月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,,6,1,3,10
+2020 7~9月,,,鯽魚 Carassius auratus ,-,,2,3,6,4,15
+2020 7~9月,,,鯉 Cyprinus carpio,-,,,1,,,1
+2020 7~9月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,,29,14,1,44
+2020 7~9月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,1,106,19,1,127
+2020 7~9月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,1,,,3,4
+2020 7~9月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,1,,,,1
+2020 7~9月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,10,,2,10,22
+2020 7~9月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,4,1,9,2,16
+2020 7~9月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,,3,4,7
+2020 7~9月,,,極樂吻鰕虎魚 Rhinogobius giurinus,-,,1,1,,2,4
+2020 7~9月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,17,6,82,59,164
+2020 7~9月,,,台灣沼蝦 Macrobrachium formosense,-,,,,,1,1
+2020 7~9月,,,粗糙沼蝦 Macrobrachium asperulum,-,,28,1,40,24,93
+2020 7~9月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,,,8,7,15
+2020 7~9月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,1,,,1
+2020 1~10月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,5,,5
+2020 1~10月,,,鱸鰻 Anguilla marmorata,-,,,,1,,1
+2020 1~10月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,188,17,3,1,209
+2020 1~10月,,,台灣馬口魚 Candidia barbata,◎,,,1,,,1
+2020 1~10月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,91,14,22,26,153
+2020 1~10月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,7,48,25,34,114
+2020 1~10月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,68,88,249,123,528
+2020 1~10月,,,陳氏鰍鮀 Gobiobotia cheni,◎,,,14,2,34,50
+2020 1~10月,,,臺灣白甲魚 Onychostoma barbatulum,-,,5,,,,5
+2020 1~10月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,5,8,1,3,17
+2020 1~10月,,,鯽魚 Carassius auratus ,-,,4,21,23,7,55
+2020 1~10月,,,鯉 Cyprinus carpio,-,,,3,1,,4
+2020 1~10月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,46,35,15,1,97
+2020 1~10月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,67,114,22,1,204
+2020 1~10月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,2,9,13,3,27
+2020 1~10月,,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,1,,2,,3
+2020 1~10月,,,鯰 Parasilurus asotus,-,,2,6,5,,13
+2020 1~10月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,17,1,9,,27
+2020 1~10月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,17,3,15,25,60
+2020 1~10月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,22,4,14,5,45
+2020 1~10月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,1,,9,6,16
+2020 1~10月,,,極樂吻鰕虎魚 Rhinogobius giurinus,-,,1,1,2,2,6
+2020 1~10月,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,,,1,,1
+2020 1~10月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,49,41,131,61,282
+2020 1~10月,,,台灣沼蝦 Macrobrachium formosense,-,,,1,12,1,14
+2020 1~10月,,,粗糙沼蝦 Macrobrachium asperulum,-,,62,31,201,51,345
+2020 1~10月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,,4,38,21,63
+2020 1~10月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,3,,,3
+2020 1~10月,龜鱉目  Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,,,,1,1
+2020 1~10月,,地龜科 Geoemydidae,斑龜 Mauremys sinensis,-,,,,,1,1
+2020全年,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,5,,5
+2020全年,,,鱸鰻 Anguilla marmorata,-,,,,1,,1
+2020全年,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,216,18,5,2,241
+2020全年,,,台灣馬口魚 Candidia barbata,◎,,,1,,,1
+2020全年,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,143,20,26,26,215
+2020全年,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,11,53,35,39,138
+2020全年,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,119,95,268,135,617
+2020全年,,,陳氏鰍鮀 Gobiobotia cheni,◎,,,14,2,34,50
+2020全年,,,臺灣白甲魚 Onychostoma barbatulum,-,,5,,,,5
+2020全年,,,高身白甲魚 Onychostoma alticorpus,◎(△),,5,8,1,3,17
+2020全年,,,鯽魚 Carassius auratus ,-,,4,23,25,7,59
+2020全年,,,鯉 Cyprinus carpio,-,,,3,1,2,6
+2020全年,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,48,35,15,1,99
+2020全年,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,67,114,22,1,204
+2020全年,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,2,9,14,3,28
+2020全年,,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,1,,2,1,4
+2020全年,,,鯰 Parasilurus asotus,-,,7,6,6,,19
+2020全年,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,19,1,12,,32
+2020全年,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,19,3,17,30,69
+2020全年,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,33,4,14,5,56
+2020全年,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,1,,25,10,36
+2020全年,,,極樂吻鰕虎魚 Rhinogobius giurinus,-,,3,1,5,2,11
+2020全年,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,,,2,,2
+2020全年,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,53,41,131,61,286
+2020全年,,,台灣沼蝦 Macrobrachium formosense,-,,5,1,16,1,23
+2020全年,,,粗糙沼蝦 Macrobrachium asperulum,-,,72,32,238,52,394
+2020全年,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,8,4,43,21,76
+2020全年,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,3,,,3
+2020全年,龜鱉目  Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,,,,1,1
+2020全年,,地龜科 Geoemydidae,斑龜 Mauremys sinensis,-,,,,,1,1
+2021.1~3月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,2,1,3
+2021.1~3月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,25,,,1,26
+2021.1~3月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,60,2,,1,63
+2021.1~3月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,14,7,16,16,53
+2021.1~3月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,89,16,16,55,176
+2021.1~3月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,,1,,,1
+2021.1~3月,,,鯽魚 Carassius auratus ,-,,1,7,12,4,24
+2021.1~3月,,,鯉 Cyprinus carpio,-,,,2,2,,4
+2021.1~3月,,爬鰍科 Balitoridae,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,,,2,1,3
+2021.1~3月,鯰形目 Siluriformes,棘甲鯰科 Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,,2,,,2
+2021.1~3月,,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,,,1,,1
+2021.1~3月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,,,1,,1
+2021.1~3月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,96,9,7,21,133
+2021.1~3月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,2,,1,1,4
+2021.1~3月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,,9,3,12
+2021.1~3月,,,極樂吻鰕虎魚 Rhinogobius giurinus,-,,6,,12,3,21
+2021.1~3月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,2,,1,,3
+2021.1~3月,,,台灣沼蝦 Macrobrachium formosense,-,,,,6,3,9
+2021.1~3月,,,粗糙沼蝦 Macrobrachium asperulum,-,,12,,15,12,39
+2021.1~3月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,5,,1,1,7
+2021.1~3月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,1,,,1
+2021.1~6月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,5,3,8
+2021.1~6月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,38,,,1,39
+2021.1~6月,,,台灣馬口魚 Candidia barbata,◎,,,2,,,2
+2021.1~6月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,88,6,,1,95
+2021.1~6月,,,紅鰭鮊 Chanodichthys erythropterus,-,,,,1,,1
+2021.1~6月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,34,31,23,48,136
+2021.1~6月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,224,315,47,105,691
+2021.1~6月,,,陳氏鰍鮀 Gobiobotia cheni,◎,,,,,1,1
+2021.1~6月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,,2,,,2
+2021.1~6月,,,鯽魚 Carassius auratus ,-,,1,18,29,23,71
+2021.1~6月,,,鯉 Cyprinus carpio,-,,,3,2,1,6
+2021.1~6月,,,䱗條 Hemiculter leucisculus,-,,,2,1,,3
+2021.1~6月,,爬鰍科 Balitoridae,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,,4,2,1,7
+2021.1~6月,鯰形目 Siluriformes,棘甲鯰科 Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,,5,4,3,12
+2021.1~6月,,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,,,1,2,3
+2021.1~6月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,,,1,,1
+2021.1~6月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,159,38,9,39,245
+2021.1~6月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,2,1,2,2,7
+2021.1~6月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,2,15,6,23
+2021.1~6月,,,極樂吻鰕虎魚 Rhinogobius giurinus,-,,6,,13,7,26
+2021.1~6月,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,,,,1,1
+2021.1~6月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,3,,1,2,6
+2021.1~6月,,,台灣沼蝦 Macrobrachium formosense,-,,,,17,4,21
+2021.1~6月,,,粗糙沼蝦 Macrobrachium asperulum,-,,19,6,73,37,135
+2021.1~6月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,7,2,1,10,20
+2021.1~6月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,2,,,2
+2021.7~9月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,1,,1
+2021.7~9月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,13,5,,,18
+2021.7~9月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,35,9,9,4,57
+2021.7~9月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,25,,6,18,49
+2021.7~9月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,30,8,10,31,79
+2021.7~9月,,,陳氏鰍鮀 Gobiobotia cheni,◎,,,,1,7,8
+2021.7~9月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,14,2,,,16
+2021.7~9月,,,鯽魚 Carassius auratus ,-,,1,5,4,15,25
+2021.7~9月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,,9,1,2,12
+2021.7~9月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,,37,2,1,40
+2021.7~9月,鯰形目 Siluriformes,棘甲鯰科 Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,,1,2,3,6
+2021.7~9月,,鯰科 Siluridae,鯰 Parasilurus asotus,-,,1,4,2,,7
+2021.7~9月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,3,,,,3
+2021.7~9月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,3,2,1,7,13
+2021.7~9月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,1,,,3,4
+2021.7~9月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,1,4,23,28
+2021.7~9月,,,極樂吻鰕虎魚 Rhinogobius giurinus,-,,1,,1,1,3
+2021.7~9月,,,短吻紅斑吻鰕虎魚 Rhinogobius rubromaculatus,◎,,1,,,,1
+2021.7~9月,,,日本禿頭鯊 Sicyopterus japonicus,-,,,1,,,1
+2021.7~9月,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,,,,1,1
+2021.7~9月,,溪鱧科 Rhyacichthyidae,溪鱧 Rhyacichthys aspro,-,,,1,,,1
+2021.7~9月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,,,1,1,2
+2021.7~9月,,,台灣沼蝦 Macrobrachium formosense,-,,,,7,7,14
+2021.7~9月,,,粗糙沼蝦 Macrobrachium asperulum,-,,16,1,21,74,112
+2021.7~9月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,5,,5,80,90
+2021.7~9月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,3,,,3
+2021.7~9月,龜鱉目  Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,2,,,,2
+2021全年,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,8,6,14
+2021全年,,,鱸鰻 Anguilla marmorata,-,,,,1,,1
+2021全年,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,221,51,7,22,301
+2021全年,,,台灣馬口魚 Candidia barbata,◎,,,3,3,,6
+2021全年,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,129,76,10,10,225
+2021全年,,,紅鰭鮊 Chanodichthys erythropterus,-,,,,1,,1
+2021全年,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,60,36,37,71,204
+2021全年,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,328,340,72,168,908
+2021全年,,,陳氏鰍鮀 Gobiobotia cheni,◎,,1,,2,8,11
+2021全年,,,臺灣白甲魚 Onychostoma barbatulum,-,,1,,1,,2
+2021全年,,,高身白甲魚 Onychostoma alticorpus,◎(△),,14,11,,2,27
+2021全年,,,鯽魚 Carassius auratus ,-,,5,31,41,40,117
+2021全年,,,鯉 Cyprinus carpio,-,,,3,2,3,8
+2021全年,,,䱗條 Hemiculter leucisculus,-,,,2,1,,3
+2021全年,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,16,12,2,23,53
+2021全年,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,8,42,6,9,65
+2021全年,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,,7,6,8,21
+2021全年,,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,,,2,7,9
+2021全年,,,鯰 Parasilurus asotus,-,,7,8,2,1,18
+2021全年,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,5,,1,1,7
+2021全年,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,216,46,19,60,341
+2021全年,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,7,2,6,54,69
+2021全年,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,5,40,60,105
+2021全年,,,極樂吻鰕虎魚 Rhinogobius giurinus,-,,7,1,14,8,30
+2021全年,,,短吻紅斑吻鰕虎魚 Rhinogobius rubromaculatus,◎,,1,,,,1
+2021全年,,,日本禿頭鯊 Sicyopterus japonicus,-,,,1,,1,2
+2021全年,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,,,,7,7
+2021全年,,溪鱧科 Rhyacichthyidae,溪鱧 Rhyacichthys aspro,-,,,1,,,1
+2021全年,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,3,9,34,44,90
+2021全年,,,台灣沼蝦 Macrobrachium formosense,-,,,,55,14,69
+2021全年,,,粗糙沼蝦 Macrobrachium asperulum,-,,38,7,128,232,405
+2021全年,,,南海沼蝦 Macrobrachium australe,-,,,1,1,1,3
+2021全年,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,14,2,30,162,208
+2021全年,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,6,,,6
+2021全年,龜鱉目  Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,2,,,,2
+2022.1~3月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,4,,4
+2022.1~3月,,,鱸鰻 Anguilla marmorata,-,,,,,3,3
+2022.1~3月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,229,,,4,233
+2022.1~3月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,15,3,1,6,25
+2022.1~3月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,1,,2,15,18
+2022.1~3月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,157,13,5,26,201
+2022.1~3月,,,陳氏鰍鮀 Gobiobotia cheni,◎,,,,,1,1
+2022.1~3月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,,3,1,2,6
+2022.1~3月,,,鯽魚 Carassius auratus ,-,,14,1,,4,19
+2022.1~3月,,,鯉 Cyprinus carpio,-,,,,,1,1
+2022.1~3月,,鰍科 Cobitidae,大鱗副泥鰍 Paramisgurnus dabryanus,-,,,,,1,1
+2022.1~3月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,2,,,,2
+2022.1~3月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,,3,5,3,11
+2022.1~3月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,,,8,4,12
+2022.1~3月,,鯰科 Siluridae,鯰 Parasilurus asotus,-,,3,2,,4,9
+2022.1~3月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,2,,,,2
+2022.1~3月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,270,,,32,302
+2022.1~3月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,3,1,2,12,18
+2022.1~3月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,,1,9,10
+2022.1~3月,,,寬頰禿頭鯊 Sicyopterus lagocephalus,-,,,,,2,2
+2022.1~3月,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,,,,2,2
+2022.1~3月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,,,2,3,5
+2022.1~3月,,,台灣沼蝦 Macrobrachium formosense,-,,,,,3,3
+2022.1~3月,,,粗糙沼蝦 Macrobrachium asperulum,-,,21,,3,23,47
+2022.1~3月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,2,,,24,26
+2022.1~3月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,2,,,2
+2022.1~6月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,5,,5
+2022.1~6月,,,鱸鰻 Anguilla marmorata,-,,1,,,3,4
+2022.1~6月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,366,5,2,7,380
+2022.1~6月,,,台灣馬口魚 Candidia barbata,◎,,,,1,2,3
+2022.1~6月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,20,5,3,7,35
+2022.1~6月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,6,,5,41,52
+2022.1~6月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,254,14,6,56,330
+2022.1~6月,,,陳氏鰍鮀 Gobiobotia cheni,◎,,,,,5,5
+2022.1~6月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,,5,2,10,17
+2022.1~6月,,,鯽魚 Carassius auratus ,-,,16,1,8,14,39
+2022.1~6月,,,鯉 Cyprinus carpio,-,,,,,1,1
+2022.1~6月,,鰍科 Cobitidae,大鱗副泥鰍 Paramisgurnus dabryanus,-,,150,,,1,151
+2022.1~6月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,2,1,,3,6
+2022.1~6月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,,8,5,8,21
+2022.1~6月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,,,19,8,27
+2022.1~6月,,鯰科 Siluridae,鯰 Parasilurus asotus,-,,3,2,2,5,12
+2022.1~6月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,3,,,3,6
+2022.1~6月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,331,,17,53,401
+2022.1~6月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,5,2,4,34,45
+2022.1~6月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,,3,19,22
+2022.1~6月,,,寬頰禿頭鯊 Sicyopterus lagocephalus,-,,,,,2,2
+2022.1~6月,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,,,,2,2
+2022.1~6月,合鰓目 Synbranchiformes,合鰓魚科 Synbranchidae,黃鱔 Monopterus albus,-,,1,,,,1
+2022.1~6月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,,,3,8,11
+2022.1~6月,,,台灣沼蝦 Macrobrachium formosense,-,,,,1,3,4
+2022.1~6月,,,粗糙沼蝦 Macrobrachium asperulum,-,,39,,15,47,101
+2022.1~6月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,2,,2,52,56
+2022.1~6月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,2,,,2
+2022.1~6月,龜鱉目 Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,,,,1,1
+2022.7~9月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,,1,1
+2022.7~9月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,33,3,,1,37
+2022.7~9月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,15,2,,,17
+2022.7~9月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,6,7,1,14,28
+2022.7~9月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,21,3,,7,31
+2022.7~9月,,,陳氏鰍鮀 Gobiobotia cheni,◎,,,2,,1,3
+2022.7~9月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,3,3,,3,9
+2022.7~9月,,,鯽魚 Carassius auratus ,-,,6,,,1,7
+2022.7~9月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,3,3,1,2,9
+2022.7~9月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,2,69,1,50,122
+2022.7~9月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,2,2,1,11,16
+2022.7~9月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,2,,,,2
+2022.7~9月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,5,,7,8,20
+2022.7~9月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,6,,,20,26
+2022.7~9月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,3,5,17,25
+2022.7~9月,,,短吻紅斑吻鰕虎魚 Rhinogobius rubromaculatus,◎,,,,,1,1
+2022.7~9月,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,,,,4,4
+2022.7~9月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,,24,88,85,197
+2022.7~9月,,,粗糙沼蝦 Macrobrachium asperulum,-,,9,1,45,82,137
+2022.7~9月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,1,,7,42,50
+2022.7~9月,龜鱉目 Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,1,,,1,2
+2022.1~11月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,5,2,7
+2022.1~11月,,,鱸鰻 Anguilla marmorata,-,,1,,1,5,7
+2022.1~11月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,436,11,3,13,463
+2022.1~11月,,,台灣馬口魚 Candidia barbata,◎,,,,1,5,6
+2022.1~11月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,54,8,3,7,72
+2022.1~11月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,21,8,7,58,94
+2022.1~11月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,292,17,7,88,404
+2022.1~11月,,,陳氏鰍鮀 Gobiobotia cheni,◎,,,2,,24,26
+2022.1~11月,,,臺灣白甲魚 Onychostoma barbatulum,-,,,,,1,1
+2022.1~11月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,6,9,2,16,33
+2022.1~11月,,,鯽魚 Carassius auratus ,-,,25,1,9,16,51
+2022.1~11月,,,鯉 Cyprinus carpio,-,,,,,1,1
+2022.1~11月,,鰍科 Cobitidae,大鱗副泥鰍 Paramisgurnus dabryanus,-,,150,,1,1,152
+2022.1~11月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,35,6,2,21,64
+2022.1~11月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,36,90,36,154,316
+2022.1~11月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,2,2,20,19,43
+2022.1~11月,,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,,,,1,1
+2022.1~11月,,,鯰 Parasilurus asotus,-,,6,2,2,5,15
+2022.1~11月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,8,,4,5,17
+2022.1~11月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,340,1,24,62,427
+2022.1~11月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,14,2,8,80,104
+2022.1~11月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,1,3,17,75,96
+2022.1~11月,,,短吻紅斑吻鰕虎魚 Rhinogobius rubromaculatus,◎,,,,,1,1
+2022.1~11月,,,寬頰禿頭鯊 Sicyopterus lagocephalus,-,,,,,2,2
+2022.1~11月,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,,,,6,6
+2022.1~11月,合鰓目 Synbranchiformes,合鰓魚科 Synbranchidae,黃鱔 Monopterus albus,-,,1,,,,1
+2022.1~11月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,,31,179,254,464
+2022.1~11月,,,台灣沼蝦 Macrobrachium formosense,-,,2,3,8,57,70
+2022.1~11月,,,粗糙沼蝦 Macrobrachium asperulum,-,,87,2,131,447,667
+2022.1~11月,,,南海沼蝦 Macrobrachium australe,-,,,,1,1,2
+2022.1~11月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,14,,16,172,202
+2022.1~11月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,2,1,,3
+2022.1~11月,龜鱉目 Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,2,,,2,4
+2022.全年,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,6,3,9
+2022.全年,,,鱸鰻 Anguilla marmorata,-,,1,,1,6,8
+2022.全年,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,469,11,3,16,499
+2022.全年,,,台灣馬口魚 Candidia barbata,◎,,,,1,5,6
+2022.全年,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,75,8,3,7,93
+2022.全年,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,49,9,8,77,143
+2022.全年,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,304,17,9,94,424
+2022.全年,,,陳氏鰍鮀 Gobiobotia cheni,◎,,,2,,26,28
+2022.全年,,,臺灣白甲魚 Onychostoma barbatulum,-,,,,,1,1
+2022.全年,,,高身白甲魚 Onychostoma alticorpus,◎(△),,7,10,2,16,35
+2022.全年,,,鯽魚 Carassius auratus ,-,,31,1,9,17,58
+2022.全年,,,鯉 Cyprinus carpio,-,,,,,1,1
+2022.全年,,鰍科 Cobitidae,泥鰍 Misgurnus anguillicaudatus,-,,,,,1,1
+2022.全年,,,大鱗副泥鰍 Paramisgurnus dabryanus,-,,150,,1,1,152
+2022.全年,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,54,7,5,22,88
+2022.全年,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,46,90,36,155,327
+2022.全年,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,3,2,21,21,47
+2022.全年,,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,,,,1,1
+2022.全年,,,鯰 Parasilurus asotus,-,,8,2,2,5,17
+2022.全年,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,12,,4,7,23
+2022.全年,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,343,1,24,69,437
+2022.全年,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,21,2,8,88,119
+2022.全年,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,1,3,25,113,142
+2022.全年,,,極樂吻鰕虎魚 Rhinogobius giurinus,-,,1,,,,1
+2022.全年,,,短吻紅斑吻鰕虎魚 Rhinogobius rubromaculatus,◎,,1,,,1,2
+2022.全年,,,寬頰禿頭鯊 Sicyopterus lagocephalus,-,,,,,2,2
+2022.全年,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,,,,6,6
+2022.全年,合鰓目 Synbranchiformes,合鰓魚科 Synbranchidae,黃鱔 Monopterus albus,-,,1,,,1,2
+2022.全年,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,,31,191,279,501
+2022.全年,,,台灣沼蝦 Macrobrachium formosense,-,,2,3,8,69,82
+2022.全年,,,粗糙沼蝦 Macrobrachium asperulum,-,,135,2,148,532,817
+2022.全年,,,南海沼蝦 Macrobrachium australe,-,,,,1,2,3
+2022.全年,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,23,,21,185,229
+2022.全年,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,2,1,,3
+2022.全年,龜鱉目 Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,2,,,2,4
+2023.1~3月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,5,1,6
+2023.1~3月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,366,8,,7,381
+2023.1~3月,,,台灣馬口魚 Candidia barbata,◎,,,,1,,1
+2023.1~3月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,33,1,,,34
+2023.1~3月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,24,3,5,10,42
+2023.1~3月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,80,10,3,8,101
+2023.1~3月,,,陳氏鰍鮀 Gobiobotia cheni,◎,Ⅱ,,1,,2,3
+2023.1~3月,,,臺灣白甲魚 Onychostoma barbatulum,-,,1,,,,1
+2023.1~3月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,15,5,4,1,25
+2023.1~3月,,,鯽魚 Carassius auratus ,-,,13,10,8,2,33
+2023.1~3月,,,鯉 Cyprinus carpio,-,,,2,,2,4
+2023.1~3月,,鰍科 Cobitidae,纓口台鰍 Formosnia lacustre,◎,,1,,,,1
+2023.1~3月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,63,,1,2,66
+2023.1~3月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,40,3,1,1,45
+2023.1~3月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,,2,1,9,12
+2023.1~3月,,鯰科 Siluridae,鯰 Parasilurus asotus,-,,1,6,,1,8
+2023.1~3月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,26,,,1,27
+2023.1~3月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,9,11,8,21,49
+2023.1~3月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,12,4,18,25,59
+2023.1~3月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,,15,39,54
+2023.1~3月,,,極樂吻鰕虎魚 Rhinogobius giurinus,-,,,,2,1,3
+2023.1~3月,,,短吻紅斑吻鰕虎魚 Rhinogobius rubromaculatus,◎,,,,,1,1
+2023.1~3月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,,3,80,68,151
+2023.1~3月,,,台灣沼蝦 Macrobrachium formosense,-,,1,,9,35,45
+2023.1~3月,,,粗糙沼蝦 Macrobrachium asperulum,-,,21,,67,99,187
+2023.1~3月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,,,1,17,18
+2023.1~3月,龜鱉目 Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,1,,,1,2
+2023.1~6月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,5,3,8
+2023.1~6月,,,鱸鰻 Anguilla marmorata,-,,,,3,,3
+2023.1~6月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,624,12,,8,644
+2023.1~6月,,,台灣馬口魚 Candidia barbata,◎,,,,1,,1
+2023.1~6月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,34,7,1,,42
+2023.1~6月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,29,3,10,17,59
+2023.1~6月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,97,16,20,15,148
+2023.1~6月,,,陳氏鰍鮀 Gobiobotia cheni,◎,Ⅱ,,3,,3,6
+2023.1~6月,,,臺灣白甲魚 Onychostoma barbatulum,-,,1,,,,1
+2023.1~6月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,19,7,5,5,36
+2023.1~6月,,,鯽魚 Carassius auratus ,-,,13,11,9,4,37
+2023.1~6月,,,鯉 Cyprinus carpio,-,,,2,1,2,5
+2023.1~6月,,,革條田中鰟鮍 Tanakia himantegus,◎,,,,1,,1
+2023.1~6月,,鰍科 Cobitidae,纓口台鰍 Formosnia lacustre,◎,,2,,,,2
+2023.1~6月,,,大鱗副泥鰍 Paramisgurnus dabryanus,-,,,,1,,1
+2023.1~6月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,88,,1,2,91
+2023.1~6月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,66,3,2,1,72
+2023.1~6月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,,4,1,12,17
+2023.1~6月,,鯰科 Siluridae,鯰 Parasilurus asotus,-,,2,7,,2,11
+2023.1~6月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,34,,,1,35
+2023.1~6月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,15,19,22,39,95
+2023.1~6月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,14,4,19,25,62
+2023.1~6月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,,17,43,60
+2023.1~6月,,,極樂吻鰕虎魚 Rhinogobius giurinus,-,,,,4,1,5
+2023.1~6月,,,短吻紅斑吻鰕虎魚 Rhinogobius rubromaculatus,◎,,,,,1,1
+2023.1~6月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,1,3,84,79,167
+2023.1~6月,,,台灣沼蝦 Macrobrachium formosense,-,,1,1,9,47,58
+2023.1~6月,,,粗糙沼蝦 Macrobrachium asperulum,-,,30,,88,123,241
+2023.1~6月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,4,,1,28,33
+2023.1~6月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,,1,,1
+2023.1~6月,龜鱉目 Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,1,,,2,3
+2023.7~9月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,1,,1
+2023.7~9月,,,鱸鰻 Anguilla marmorata,-,,,,,3,3
+2023.7~9月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,2,3,,2,7
+2023.7~9月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,9,6,,2,17
+2023.7~9月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,8,2,,21,31
+2023.7~9月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,32,2,,20,54
+2023.7~9月,,,陳氏鰍鮀 Gobiobotia cheni,◎,Ⅱ,,1,,6,7
+2023.7~9月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,1,1,,7,9
+2023.7~9月,,,鯽魚 Carassius auratus ,-,,4,1,,6,11
+2023.7~9月,,,鯉 Cyprinus carpio,-,,,,,1,1
+2023.7~9月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,3,4,,1,8
+2023.7~9月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,4,37,1,25,67
+2023.7~9月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,1,,2,2,5
+2023.7~9月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,1,,2,1,4
+2023.7~9月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,2,1,13,18,34
+2023.7~9月,,,花身副麗魚 Parachromis managuensis,△,,,,,1,1
+2023.7~9月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,3,,,2,5
+2023.7~9月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,,,14,14
+2023.7~9月,,,極樂吻鰕虎魚 Rhinogobius giurinus,-,,,,,1,1
+2023.7~9月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,,,,1,1
+2023.7~9月,,,台灣沼蝦 Macrobrachium formosense,-,,,,,1,1
+2023.7~9月,,,粗糙沼蝦 Macrobrachium asperulum,-,,51,2,7,78,138
+2023.7~9月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,7,1,5,35,48
+2023.7~9月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,1,,,1
+2023.7~9月,龜鱉目 Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,2,,,1,3
+2023全年,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,6,5,11
+2023全年,,,鱸鰻 Anguilla marmorata,-,,,,4,4,8
+2023全年,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,694,22,,15,731
+2023全年,,,台灣馬口魚 Candidia barbata,◎,,,,1,,1
+2023全年,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,50,19,1,2,72
+2023全年,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,42,5,11,38,96
+2023全年,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,150,19,21,49,239
+2023全年,,,陳氏鰍鮀 Gobiobotia cheni,◎,Ⅱ,,4,,9,13
+2023全年,,,臺灣白甲魚 Onychostoma barbatulum,-,,6,,,,6
+2023全年,,,高身白甲魚 Onychostoma alticorpus,◎(△),,60,13,5,19,97
+2023全年,,,鯽魚 Carassius auratus ,-,,19,12,10,11,52
+2023全年,,,鯉 Cyprinus carpio,-,,,4,1,3,8
+2023全年,,,䱗條 Hemiculter leucisculus,-,,,,1,,1
+2023全年,,,革條田中鰟鮍 Tanakia himantegus,◎,,,,1,,1
+2023全年,,鰍科 Cobitidae,纓口台鰍 Formosnia lacustre,◎,,2,2,,1,5
+2023全年,,,大鱗副泥鰍 Paramisgurnus dabryanus,-,,,,1,,1
+2023全年,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,162,5,3,22,192
+2023全年,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,104,114,11,117,346
+2023全年,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,1,4,3,14,22
+2023全年,,鯰科 Siluridae,鯰 Parasilurus asotus,-,,2,8,,3,13
+2023全年,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,51,,2,4,57
+2023全年,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,18,22,37,61,138
+2023全年,,,花身副麗魚 Parachromis managuensis,△,,,,,1,1
+2023全年,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,20,4,20,41,85
+2023全年,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,,27,95,122
+2023全年,,,極樂吻鰕虎魚 Rhinogobius giurinus,-,,,,4,2,6
+2023全年,,,短吻紅斑吻鰕虎魚 Rhinogobius rubromaculatus,◎,,,,,1,1
+2023全年,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,,,,3,3
+2023全年,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,1,3,86,80,170
+2023全年,,,台灣沼蝦 Macrobrachium formosense,-,,1,1,9,48,59
+2023全年,,,粗糙沼蝦 Macrobrachium asperulum,-,,107,2,129,479,717
+2023全年,,,貪食沼蝦 Macrobrachium lar,-,,,,,1,1
+2023全年,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,14,1,6,186,207
+2023全年,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,2,1,,3
+2023全年,龜鱉目 Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,4,,,4,8
+2024. 1~3月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,1,3,4
+2024. 1~3月,,,鱸鰻 Anguilla marmorata,-,,,,2,,2
+2024. 1~3月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,133,4,1,4,142
+2024. 1~3月,,,台灣馬口魚 Candidia barbata,◎,,,,,1,1
+2024. 1~3月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,,7,1,,8
+2024. 1~3月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,40,,2,7,49
+2024. 1~3月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,32,,,1,33
+2024. 1~3月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,67,,,10,77
+2024. 1~3月,,,鯽魚 Carassius auratus ,-,,,2,1,1,4
+2024. 1~3月,,鰍科 Cobitidae,纓口台鰍 Formosnia lacustre,◎,,1,,,,1
+2024. 1~3月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,66,,1,4,71
+2024. 1~3月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,97,,5,2,104
+2024. 1~3月,鯰形目 Siluriformes,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,,,,1,1
+2024. 1~3月,,,鯰 Parasilurus asotus,-,,,2,,,2
+2024. 1~3月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,20,,,1,21
+2024. 1~3月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,,2,1,1,4
+2024. 1~3月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,3,1,2,2,8
+2024. 1~3月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,,,15,15
+2024. 1~3月,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,,,,1,1
+2024. 1~3月,合鰓目 Synbranchiformes,合鰓魚科 Synbranchidae,黃鱔 Monopterus albus,-,,,,,1,1
+2024. 1~3月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,,,,1,1
+2024. 1~3月,,,粗糙沼蝦 Macrobrachium asperulum,-,,23,,9,108,140
+2024. 1~3月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,1,,,43,44
+2024. 1~3月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,2,,,2
+2024. 1~6月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,1,3,4
+2024. 1~6月,,,鱸鰻 Anguilla marmorata,-,,,,2,,2
+2024. 1~6月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,162,14,3,4,183
+2024. 1~6月,,,台灣馬口魚 Candidia barbata,◎,,,,,1,1
+2024. 1~6月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,6,8,1,,15
+2024. 1~6月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,71,4,6,20,101
+2024. 1~6月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,42,5,3,6,56
+2024. 1~6月,,,陳氏鰍鮀 Gobiobotia cheni,◎,Ⅱ,,,,2,2
+2024. 1~6月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,89,56,2,20,167
+2024. 1~6月,,,鯽魚 Carassius auratus ,-,,3,2,5,2,12
+2024. 1~6月,,,草魚 Ctenopharyngodon idella,△,,,1,,,1
+2024. 1~6月,,鰍科 Cobitidae,纓口台鰍 Formosnia lacustre,◎,,1,,,,1
+2024. 1~6月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,89,,1,4,94
+2024. 1~6月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,212,11,11,11,245
+2024. 1~6月,鯰形目 Siluriformes,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,,,,1,1
+2024. 1~6月,,,鯰 Parasilurus asotus,-,,,3,,,3
+2024. 1~6月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,29,1,,2,32
+2024. 1~6月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,3,3,1,5,12
+2024. 1~6月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,21,1,4,6,32
+2024. 1~6月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,,,18,18
+2024. 1~6月,,,短吻紅斑吻鰕虎魚 Rhinogobius rubromaculatus,◎,,1,,,,1
+2024. 1~6月,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,,,,2,2
+2024. 1~6月,合鰓目 Synbranchiformes,合鰓魚科 Synbranchidae,黃鱔 Monopterus albus,-,,,,,1,1
+2024. 1~6月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,,,,1,1
+2024. 1~6月,,,粗糙沼蝦 Macrobrachium asperulum,-,,38,,11,133,182
+2024. 1~6月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,7,,,83,90
+2024. 1~6月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,2,,,2
+2024.7~9月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,鱸鰻 Anguilla marmorata,-,,,,1,,1
+2024.7~9月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,3,3,,2,8
+2024.7~9月,,,台灣馬口魚 Candidia barbata,◎,,,,,1,1
+2024.7~9月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,3,,,2,5
+2024.7~9月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,7,,1,15,23
+2024.7~9月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,12,4,12,15,43
+2024.7~9月,,,陳氏鰍鮀 Gobiobotia cheni,◎,Ⅱ,,1,,1,2
+2024.7~9月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,35,,,30,65
+2024.7~9月,,,鯉 Cyprinus carpio,-,,,1,,,1
+2024.7~9月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,1,,,3,4
+2024.7~9月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,2,,1,48,51
+2024.7~9月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,2,6,1,4,13
+2024.7~9月,,鯰科 Siluridae,鯰 Parasilurus asotus,-,,1,,,,1
+2024.7~9月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,3,,,9,12
+2024.7~9月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,11,,1,3,15
+2024.7~9月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,5,,6,28,39
+2024.7~9月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,,,2,2
+2024.7~9月,,,日本禿頭鯊 Sicyopterus japonicus,-,,,,,1,1
+2024.7~9月,合鰓目 Synbranchiformes,合鰓魚科 Synbranchidae,黃鱔 Monopterus albus,-,,1,,,,1
+2024.7~9月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,,4,26,21,51
+2024.7~9月,,,粗糙沼蝦 Macrobrachium asperulum,-,,19,1,11,32,63
+2024.7~9月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,5,,1,9,15
+2024.7~9月,有鱗目 Squamata,游蛇科 Colubridae,白腹游蛇 Sinonatrix percarinata suriki,◎,,,,1,,1
+2024全年,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,1,5,6
+2024全年,,,鱸鰻 Anguilla marmorata,-,,,,3,,3
+2024全年,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,169,29,3,15,216
+2024全年,,,台灣馬口魚 Candidia barbata,◎,,1,1,,2,4
+2024全年,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,15,16,6,9,46
+2024全年,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,79,7,9,43,138
+2024全年,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,55,18,33,64,170
+2024全年,,,陳氏鰍鮀 Gobiobotia cheni,◎,Ⅱ,,2,,9,11
+2024全年,,,高身白甲魚 Onychostoma alticorpus,◎(△),,167,65,5,169,406
+2024全年,,,鯽魚 Carassius auratus ,-,,4,4,5,4,17
+2024全年,,,鯉 Cyprinus carpio,-,,,1,,,1
+2024全年,,,草魚 Ctenopharyngodon idella,△,,,1,,,1
+2024全年,,鰍科 Cobitidae,纓口台鰍 Formosnia lacustre,◎,,1,,,,1
+2024全年,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,103,,1,15,119
+2024全年,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,224,12,13,239,488
+2024全年,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,3,17,5,9,34
+2024全年,,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,,,,1,1
+2024全年,,,鯰 Parasilurus asotus,-,,2,3,,,5
+2024全年,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,32,1,1,17,51
+2024全年,鱸形目 Perciformes,慈鯛科 Cichlida,雜交種吳郭魚 Oreochromis sp. ,△,,14,6,2,8,30
+2024全年,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,26,1,11,49,87
+2024全年,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,,1,31,32
+2024全年,,,短吻紅斑吻鰕虎魚 Rhinogobius rubromaculatus,◎,,1,,,,1
+2024全年,,,日本禿頭鯊 Sicyopterus japonicus,-,,,,,1,1
+2024全年,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,,,,2,2
+2024全年,合鰓目 Synbranchiformes,合鰓魚科 Synbranchidae,黃鱔 Monopterus albus,-,,1,,,1,2
+2024全年,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,,11,30,46,87
+2024全年,,,台灣沼蝦 Macrobrachium formosense,-,,,,8,12,20
+2024全年,,,粗糙沼蝦 Macrobrachium asperulum,-,,57,1,27,192,277
+2024全年,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,12,,1,93,106
+2024全年,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,3,,,3
+2024全年,有鱗目 Squamata,游蛇科 Colubridae,白腹游蛇 Sinonatrix percarinata suriki,◎,,,,1,,1
+2025. 1~3月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,1,,1
+2025. 1~3月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,73,,1,4,78
+2025. 1~3月,,,台灣馬口魚 Candidia barbata,◎,,2,,2,,4
+2025. 1~3月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,6,1,,,7
+2025. 1~3月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,8,,,2,10
+2025. 1~3月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,58,,5,28,91
+2025. 1~3月,,,陳氏鰍鮀 Gobiobotia cheni,◎,Ⅱ,1,,,,1
+2025. 1~3月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,75,3,1,31,110
+2025. 1~3月,,,鯽魚 Carassius auratus ,-,,,5,1,,6
+2025. 1~3月,,,鯉 Cyprinus carpio,-,,,,,1,1
+2025. 1~3月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,11,,,1,12
+2025. 1~3月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,25,,,2,27
+2025. 1~3月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,,25,10,3,38
+2025. 1~3月,,鯰科 Siluridae,鯰 Parasilurus asotus,-,,,1,,,1
+2025. 1~3月,,鱨科 Bagridae,短臀擬鱨 Tachysurus brevianalis,◎,,3,,,4,7
+2025. 1~3月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交口孵非鯽 Oreochromis sp. ,△,,,,1,,1
+2025. 1~3月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,6,,4,6,16
+2025. 1~3月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,2,,3,5
+2025. 1~3月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,,,1,7,8
+2025. 1~3月,,,粗糙沼蝦 Macrobrachium asperulum,-,,,1,1,5,7
+2025. 1~3月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,,,,3,3
+2025. 1~6月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,1,,1
+2025. 1~6月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,203,10,1,5,219
+2025. 1~6月,,,台灣馬口魚 Candidia barbata,◎,,2,,2,,4
+2025. 1~6月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,18,4,1,1,24
+2025. 1~6月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,8,5,1,8,22
+2025. 1~6月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,158,86,10,39,293
+2025. 1~6月,,,陳氏鰍鮀 Gobiobotia cheni,◎,Ⅱ,1,,1,5,7
+2025. 1~6月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,206,73,37,109,425
+2025. 1~6月,,,鯽魚 Carassius auratus ,-,,,6,3,1,10
+2025. 1~6月,,,鯉 Cyprinus carpio,-,,,,,1,1
+2025. 1~6月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,18,,,1,19
+2025. 1~6月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,52,,,9,61
+2025. 1~6月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,,26,11,3,40
+2025. 1~6月,,鯰科 Siluridae,鯰 Parasilurus asotus,-,,,1,,,1
+2025. 1~6月,,鱨科 Bagridae,短臀擬鱨 Tachysurus brevianalis,◎,,9,,1,4,14
+2025. 1~6月,,,長脂擬鱨 Tachysurus adiposalis,◎,,,,,1,1
+2025. 1~6月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交口孵非鯽 Oreochromis sp. ,△,,,,1,,1
+2025. 1~6月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,17,4,6,10,37
+2025. 1~6月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,9,,5,14
+2025. 1~6月,合鰓目 Synbranchiformes,合鰓魚科 Synbranchidae,黃鱔 Monopterus albus,-,,,,1,1,2
+2025. 1~6月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,,,1,7,8
+2025. 1~6月,,,台灣沼蝦 Macrobrachium formosense,-,,1,,,,1
+2025. 1~6月,,,粗糙沼蝦 Macrobrachium asperulum,-,,6,1,1,5,13
+2025. 1~6月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,5,,,4,9
+2025. 1~6月,龜鱉目 Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,1,,,1,2
+2025. 7~9月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,11,,1,5,17
+2025. 7~9月,,,台灣馬口魚 Candidia barbata,◎,,,,,1,1
+2025. 7~9月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,15,15,,2,32
+2025. 7~9月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,1,6,17,23,47
+2025. 7~9月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,6,14,3,63,86
+2025. 7~9月,,,陳氏鰍鮀 Gobiobotia cheni,◎,Ⅱ,,2,3,32,37
+2025. 7~9月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,55,8,1,15,79
+2025. 7~9月,,,鯽魚 Carassius auratus ,-,,,1,1,9,11
+2025. 7~9月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,3,1,,6,10
+2025. 7~9月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,3,,1,,4
+2025. 7~9月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,,,,3,3
+2025. 7~9月,,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,,,,1,1
+2025. 7~9月,,,鯰 Parasilurus asotus,-,,,1,1,,2
+2025. 7~9月,,鱨科 Bagridae,短臀擬鱨 Tachysurus brevianalis,◎,,,,,5,5
+2025. 7~9月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交口孵非鯽 Oreochromis sp. ,△,,,,1,3,4
+2025. 7~9月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,30,3,2,27,62
+2025. 7~9月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,1,,,1
+2025. 7~9月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,5,,,2,7
+2025. 7~9月,,,台灣沼蝦 Macrobrachium formosense,-,,,,,2,2
+2025. 7~9月,,,粗糙沼蝦 Macrobrachium asperulum,-,,13,5,1,46,65
+2025. 7~9月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,4,,8,40,52
+2025. 7~9月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,1,,,1
+2025. 1~12月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,1,,1
+2025. 1~12月,,,鱸鰻 Anguilla marmorata,-,,,1,,,1
+2025. 1~12月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,238,13,2,13,266
+2025. 1~12月,,,台灣馬口魚 Candidia barbata,◎,,2,,2,1,5
+2025. 1~12月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,105,19,2,4,130
+2025. 1~12月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,17,19,19,34,89
+2025. 1~12月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,181,116,19,112,428
+2025. 1~12月,,,陳氏鰍鮀 Gobiobotia cheni,◎,Ⅱ,1,4,4,42,51
+2025. 1~12月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,388,168,55,185,796
+2025. 1~12月,,,鯽魚 Carassius auratus ,-,,,7,4,10,21
+2025. 1~12月,,,鯉 Cyprinus carpio,-,,,,,1,1
+2025. 1~12月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,31,1,,13,45
+2025. 1~12月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,84,7,1,68,160
+2025. 1~12月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,,29,17,6,52
+2025. 1~12月,,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,,,,2,2
+2025. 1~12月,,,鯰 Parasilurus asotus,-,,,3,1,,4
+2025. 1~12月,,鱨科 Bagridae,短臀擬鱨 Tachysurus brevianalis,◎,,12,,2,12,26
+2025. 1~12月,,,長脂擬鱨 Tachysurus adiposalis,◎,,,,,1,1
+2025. 1~12月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交口孵非鯽 Oreochromis sp. ,△,,1,,2,4,7
+2025. 1~12月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,49,10,10,42,111
+2025. 1~12月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,32,2,30,64
+2025. 1~12月,,,極樂吻鰕虎魚 Rhinogobius giurinus,-,,,,,3,3
+2025. 1~12月,合鰓目 Synbranchiformes,合鰓魚科 Synbranchidae,黃鱔 Monopterus albus,-,,,,1,1,2
+2025. 1~12月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,5,56,44,252,357
+2025. 1~12月,,,台灣沼蝦 Macrobrachium formosense,-,,1,,3,26,30
+2025. 1~12月,,,粗糙沼蝦 Macrobrachium asperulum,-,,21,6,5,87,119
+2025. 1~12月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,9,,10,51,70
+2025. 1~12月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,5,,,5
+2025. 1~12月,龜鱉目 Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,1,,,1,2
+2026  1~3月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,,2,2
+2026  1~3月,,,鱸鰻 Anguilla marmorata,-,,,,2,,2
+2026  1~3月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,30,,,2,32
+2026  1~3月,,,台灣馬口魚 Candidia barbata,◎,,,1,1,,2
+2026  1~3月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,13,3,1,1,18
+2026  1~3月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,12,2,13,40,67
+2026  1~3月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,68,4,22,43,137
+2026  1~3月,,,陳氏鰍鮀 Gobiobotia cheni,◎,Ⅱ,,,2,15,17
+2026  1~3月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,108,11,7,20,146
+2026  1~3月,,,鯽魚 Carassius auratus ,-,,,2,2,,4
+2026  1~3月,,鰍科 Cobitidae,纓口台鰍 Formosnia lacustre,◎,,1,,,,1
+2026  1~3月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,36,,,1,37
+2026  1~3月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,22,,,,22
+2026  1~3月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,,1,2,1,4
+2026  1~3月,,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,,,,1,1
+2026  1~3月,,,鯰 Parasilurus asotus,-,,1,,,1,2
+2026  1~3月,,鱨科 Bagridae,短臀擬鱨 Tachysurus brevianalis,◎,,9,,,,9
+2026  1~3月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交口孵非鯽 Oreochromis sp. ,△,,1,,1,2,4
+2026  1~3月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,12,1,,7,20
+2026  1~3月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,,,7,7
+2026  1~3月,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,1,,1,1,3
+2026  1~3月,,,斑鱧 Channa maculata,-,,,,1,,1
+2026  1~3月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,,,10,29,39
+2026  1~3月,,,台灣沼蝦 Macrobrachium formosense,-,,,,,6,6
+2026  1~3月,,,粗糙沼蝦 Macrobrachium asperulum,-,,2,,4,35,41
+2026  1~3月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,3,,,8,11
+2026  1~3月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,2,,,2
+2026  1~6月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,1,,,2,3
+2026  1~6月,,,鱸鰻 Anguilla marmorata,-,,,,2,,2
+2026  1~6月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,66,2,,4,72
+2026  1~6月,,,台灣馬口魚 Candidia barbata,◎,,,1,1,,2
+2026  1~6月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,28,13,5,2,48
+2026  1~6月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,25,14,14,71,124
+2026  1~6月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,197,13,27,68,305
+2026  1~6月,,,陳氏鰍鮀 Gobiobotia cheni,◎,Ⅱ,1,,5,18,24
+2026  1~6月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,122,16,8,34,180
+2026  1~6月,,,鯽魚 Carassius auratus ,-,,,4,2,2,8
+2026  1~6月,,鰍科 Cobitidae,纓口台鰍 Formosnia lacustre,◎,,2,,,,2
+2026  1~6月,,,大鱗副泥鰍 Paramisgurnus dabryanus,-,,1,,,,1
+2026  1~6月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,54,,,1,55
+2026  1~6月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,46,7,1,2,56
+2026  1~6月,鯰形目 Siluriformes,棘甲鯰科Loricariidae,豹紋翼甲鯰 Pterygoplichthys pardalis,△,,,1,3,1,5
+2026  1~6月,,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,,,,2,2
+2026  1~6月,,,鯰 Parasilurus asotus,-,,2,,,1,3
+2026  1~6月,,鱨科 Bagridae,短臀擬鱨 Tachysurus brevianalis,◎,,14,,,2,16
+2026  1~6月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交口孵非鯽 Oreochromis sp. ,△,,3,2,3,3,11
+2026  1~6月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,29,1,,8,38
+2026  1~6月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,,,8,8
+2026  1~6月,,鱧科 Channidae ,泰國鱧 Channa guchua,△,,1,,2,1,4
+2026  1~6月,,,斑鱧 Channa maculata,-,,,,1,,1
+2026  1~6月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,1,,10,31,42
+2026  1~6月,,,台灣沼蝦 Macrobrachium formosense,-,,,,,6,6
+2026  1~6月,,,粗糙沼蝦 Macrobrachium asperulum,-,,8,,5,38,51
+2026  1~6月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,8,,,8,16
+2026  1~6月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,4,,,4
+2026. 7~9月,鰻形目 Anguilliformes,鰻鱺科 Anguillidae,白鰻 Anguilla japonica,-,,,,3,,3
+2026. 7~9月,鯉形目 Cypriniformes,鯉科 Cyprinidae,台灣石𩼧 Acrossocheilus paradoxus,◎,,,1,,1,2
+2026. 7~9月,,,何氏棘鲃 Spinibarbus hollandi ,◎(△),,6,1,1,3,11
+2026. 7~9月,,,高身小鰾鮈 Microphysogobio alticorpus,◎,,10,2,,3,15
+2026. 7~9月,,,粗首馬口鱲 Opsariichthys pachycephalus,◎,,24,10,2,9,45
+2026. 7~9月,,,陳氏鰍鮀 Gobiobotia cheni,◎,Ⅱ,4,1,,9,14
+2026. 7~9月,,,高身白甲魚 Onychostoma alticorpus,◎(△),,,,,7,7
+2026. 7~9月,,,鯽魚 Carassius auratus ,-,,1,1,2,1,5
+2026. 7~9月,,,䱗條 Hemiculter leucisculus,-,,,14,,,14
+2026. 7~9月,,爬鰍科 Balitoridae,台灣間爬岩鰍 Hemimyzon formosanum,◎,,,10,1,4,15
+2026. 7~9月,,,埔里中華爬岩鰍 Sinogastromyzon puliensis,◎,Ⅲ,,87,,10,97
+2026. 7~9月,鯰形目 Siluriformes,鯰科 Siluridae,鬍子鯰 Clarias fuscus,△,,,,1,,1
+2026. 7~9月,,,鯰 Parasilurus asotus,-,,1,3,,,4
+2026. 7~9月,,鱨科 Bagridae,短臀擬鱨 Pseudobagrus brevianalis ,◎,,,,,1,1
+2026. 7~9月,鱸形目 Perciformes,慈鯛科 Cichlida,雜交口孵非鯽 Oreochromis sp. ,△,,1,1,1,3,6
+2026. 7~9月,,鰕虎魚科 Gobiidae,明潭吻鰕虎魚 Rhinogobius candidianus,◎,,3,,,3,6
+2026. 7~9月,,,斑帶吻鰕虎魚 Rhinogobius maculafasciatus,◎,,,,,2,2
+2026. 7~9月,十足目 Decapoda,長臂蝦科 Palaemonidae,大和沼蝦 Macrobrachium japonicum,-,,,20,6,12,38
+2026. 7~9月,,,台灣沼蝦 Macrobrachium formosense,-,,,,2,,2
+2026. 7~9月,,,粗糙沼蝦 Macrobrachium asperulum,-,,7,,3,9,19
+2026. 7~9月,,匙指蝦科 Atyidae,多齒新米蝦 Neocaridina denticulata,-,,11,1,,1,13
+2026. 7~9月,,方蟹科 Grapsidae ,合浦絨螯蟹 Eriocheir  hepuensis,-,,,9,,,9
+2026. 7~9月,龜鱉目 Testudines,鱉科 Trionychidae,中華鱉 Pelodiscus sinensis,-,,,,,1,1

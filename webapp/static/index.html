@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>斗六堰生態調查資料分析</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #f4f6f9; --panel: #ffffff; --ink: #1f2937; --muted: #6b7280;
+    --accent: #2563eb; --accent2: #0ea5e9; --border: #e5e7eb; --good: #16a34a;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "Segoe UI", "Microsoft JhengHei", Arial, sans-serif; background:var(--bg); color:var(--ink); }
+  header { background:linear-gradient(90deg,#0f172a,#1e3a8a); color:#fff; padding:18px 24px; display:flex; align-items:center; justify-content:space-between; }
+  header h1 { font-size:18px; margin:0; font-weight:600; }
+  header .sub { font-size:12px; opacity:.8; margin-top:2px; }
+  .layout { display:grid; grid-template-columns: 240px 1fr; gap:16px; padding:16px; max-width:1400px; margin:0 auto; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+  .filters { background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:16px; align-self:start; position:sticky; top:16px; }
+  .filters h3 { font-size:13px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin:0 0 10px; }
+  .filters label { display:block; font-size:12px; color:var(--muted); margin:12px 0 4px; }
+  .filters select, .filters input[type=range] { width:100%; padding:6px; border:1px solid var(--border); border-radius:6px; font-size:13px; }
+  .range-val { font-size:12px; color:var(--accent); font-weight:600; }
+  .kpis { display:grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap:12px; margin-bottom:16px; }
+  .kpi { background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:14px 16px; }
+  .kpi .label { font-size:12px; color:var(--muted); }
+  .kpi .value { font-size:24px; font-weight:700; color:var(--accent); margin-top:4px; }
+  .grid { display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+  @media (max-width: 1100px) { .grid { grid-template-columns: 1fr; } }
+  .card { background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:16px; }
+  .card h2 { font-size:14px; margin:0 0 12px; color:var(--ink); }
+  .card.full { grid-column: 1 / -1; }
+  canvas { max-height: 320px; }
+  table { width:100%; border-collapse:collapse; font-size:12px; }
+  th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--border); }
+  th { color:var(--muted); font-weight:600; }
+  footer { text-align:center; color:var(--muted); font-size:11px; padding:20px; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>斗六堰生態調查資料分析儀表板</h1>
+    <div class="sub">Douliu Weir Ecological Survey — Data &amp; Trend Analysis</div>
+  </div>
+  <div class="sub" id="lastUpdated"></div>
+</header>
+
+<div class="layout">
+  <aside class="filters">
+    <h3>篩選條件</h3>
+    <label>年度範圍：<span class="range-val" id="yearRangeLabel"></span></label>
+    <input type="range" id="yearFrom" />
+    <input type="range" id="yearTo" />
+    <label>分類</label>
+    <select id="categorySelect"><option value="">全部</option></select>
+    <label>測站</label>
+    <select id="stationSelect"><option value="">全部</option></select>
+    <label>物種（單選，用於物種趨勢圖）</label>
+    <select id="speciesSelect"><option value="">(請選擇)</option></select>
+  </aside>
+
+  <main>
+    <div class="kpis" id="kpis"></div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>各分類（魚/蝦/爬蟲）歷年數量趨勢</h2>
+        <canvas id="chartCategoryTrend"></canvas>
+      </div>
+      <div class="card">
+        <h2>各測站歷年數量趨勢</h2>
+        <canvas id="chartStationTrend"></canvas>
+      </div>
+      <div class="card">
+        <h2>物種數量排行（前15名）</h2>
+        <canvas id="chartTopSpecies"></canvas>
+      </div>
+      <div class="card">
+        <h2>單一物種歷年趨勢</h2>
+        <canvas id="chartSpeciesTrend"></canvas>
+      </div>
+      <div class="card full">
+        <h2>南雲大橋水質監測</h2>
+        <canvas id="chartWaterQuality"></canvas>
+      </div>
+      <div class="card full">
+        <h2>特有保育類物種紀錄（近期）</h2>
+        <div style="max-height:260px; overflow:auto;">
+          <table id="conservationTable">
+            <thead><tr><th>期間</th><th>物種學名</th><th>特有性</th><th>保育等級</th><th>總計</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<footer>資料來源：Z:\11.集集斗六\2026\斗六堰\原始資料\ 115 斗六堰水生生物調查表.xlsx / 115 南雲大橋流量水質報表.xlsx（經正規化匯入 PostgreSQL）。由 Claude 建置，Phase 1 範圍：斗六堰歷年資料。</footer>
+
+<script>
+const API = "";
+const palette = ["#2563eb","#0ea5e9","#16a34a","#f59e0b","#ef4444","#8b5cf6","#ec4899","#14b8a6","#f97316","#64748b"];
+let filtersData = {species:[], stations:[], years:[], categories:[]};
+let charts = {};
+
+async function fetchJSON(path) {
+  const res = await fetch(API + path);
+  return res.json();
+}
+
+function qs(params) {
+  const p = new URLSearchParams();
+  for (const k in params) if (params[k] !== "" && params[k] !== undefined && params[k] !== null) p.set(k, params[k]);
+  return p.toString();
+}
+
+function currentFilters() {
+  return {
+    year_from: document.getElementById("yearFrom").value,
+    year_to: document.getElementById("yearTo").value,
+    category: document.getElementById("categorySelect").value,
+    station: document.getElementById("stationSelect").value,
+  };
+}
+
+function destroyChart(id) { if (charts[id]) { charts[id].destroy(); } }
+
+async function loadKPIs() {
+  const s = await fetchJSON("/api/summary");
+  const kpis = [
+    {label:"總紀錄筆數", value: s.total_records},
+    {label:"物種數", value: s.species_count},
+    {label:"測站數", value: s.station_count},
+    {label:"年度範圍", value: `${s.min_year} - ${s.max_year}`},
+    {label:"累計個體數", value: s.total_individuals},
+  ];
+  document.getElementById("kpis").innerHTML = kpis.map(k =>
+    `<div class="kpi"><div class="label">${k.label}</div><div class="value">${k.value}</div></div>`).join("");
+  document.getElementById("lastUpdated").textContent = "資料年度：" + s.min_year + " - " + s.max_year;
+}
+
+async function loadCategoryTrend() {
+  const f = currentFilters();
+  const rows = await fetchJSON("/api/trend/category?" + qs({station: f.station, year_from: f.year_from, year_to: f.year_to}));
+  const years = [...new Set(rows.map(r=>r.year))].sort();
+  const cats = [...new Set(rows.map(r=>r.category))];
+  const datasets = cats.map((c,i) => ({
+    label: c, data: years.map(y => { const m = rows.find(r=>r.year===y && r.category===c); return m ? m.total_count : 0; }),
+    borderColor: palette[i%palette.length], backgroundColor: palette[i%palette.length]+"33", tension:.3, fill:false,
+  }));
+  destroyChart("cat");
+  charts.cat = new Chart(document.getElementById("chartCategoryTrend"), {
+    type:"line", data:{labels:years, datasets}, options:{responsive:true, maintainAspectRatio:true}
+  });
+}
+
+async function loadStationTrend() {
+  const f = currentFilters();
+  const rows = await fetchJSON("/api/trend/station?" + qs({category: f.category, year_from: f.year_from, year_to: f.year_to}));
+  const years = [...new Set(rows.map(r=>r.year))].sort();
+  const stations = [...new Set(rows.map(r=>r.station))];
+  const datasets = stations.map((st,i) => ({
+    label: st, data: years.map(y => { const m = rows.find(r=>r.year===y && r.station===st); return m ? m.total_count : 0; }),
+    borderColor: palette[i%palette.length], backgroundColor: palette[i%palette.length]+"33", tension:.3, fill:false,
+  }));
+  destroyChart("station");
+  charts.station = new Chart(document.getElementById("chartStationTrend"), {
+    type:"line", data:{labels:years, datasets}, options:{responsive:true, maintainAspectRatio:true}
+  });
+}
+
+async function loadTopSpecies() {
+  const f = currentFilters();
+  const rows = await fetchJSON("/api/top_species?" + qs({category: f.category, year_from: f.year_from, year_to: f.year_to, limit:15}));
+  destroyChart("top");
+  charts.top = new Chart(document.getElementById("chartTopSpecies"), {
+    type:"bar",
+    data:{ labels: rows.map(r=>r.species_name_zh || r.species_name_latin),
+           datasets:[{ label:"累計數量", data: rows.map(r=>r.total_count), backgroundColor: "#2563eb" }] },
+    options:{ indexAxis:"y", responsive:true, maintainAspectRatio:true, plugins:{legend:{display:false}} }
+  });
+}
+
+async function loadSpeciesTrend() {
+  const sp = document.getElementById("speciesSelect").value;
+  destroyChart("species");
+  if (!sp) { return; }
+  const f = currentFilters();
+  const rows = await fetchJSON("/api/species_trend?" + qs({species_name_latin: sp, station: f.station}));
+  charts.species = new Chart(document.getElementById("chartSpeciesTrend"), {
+    type:"line",
+    data:{ labels: rows.map(r=>r.year), datasets:[{ label: sp, data: rows.map(r=>r.total_count),
+           borderColor:"#16a34a", backgroundColor:"#16a34a33", fill:true, tension:.3 }] },
+    options:{ responsive:true, maintainAspectRatio:true }
+  });
+}
+
+async function loadWaterQuality() {
+  const rows = await fetchJSON("/api/water_quality");
+  destroyChart("wq");
+  charts.wq = new Chart(document.getElementById("chartWaterQuality"), {
+    type:"line",
+    data:{ labels: rows.map(r=>r.sample_date),
+           datasets:[
+             {label:"水溫(℃)", data: rows.map(r=>r.water_temp_c), borderColor:palette[0], fill:false, spanGaps:true},
+             {label:"pH", data: rows.map(r=>r.ph), borderColor:palette[1], fill:false, spanGaps:true},
+             {label:"溶氧(mg/L)", data: rows.map(r=>r.dissolved_oxygen_mgl), borderColor:palette[2], fill:false, spanGaps:true},
+             {label:"BOD(mg/L)", data: rows.map(r=>r.bod_mgl), borderColor:palette[3], fill:false, spanGaps:true},
+           ]},
+    options:{ responsive:true, maintainAspectRatio:true }
+  });
+}
+
+async function loadConservation() {
+  const rows = await fetchJSON("/api/conservation");
+  const tbody = document.querySelector("#conservationTable tbody");
+  tbody.innerHTML = rows.slice(0,50).map(r =>
+    `<tr><td>${r.period_label||""}</td><td>${r.species_name_latin||""}</td><td>${r.endemic_status||""}</td><td>${r.conservation_grade||""}</td><td>${r.total??""}</td></tr>`
+  ).join("");
+}
+
+async function refreshAll() {
+  await Promise.all([loadCategoryTrend(), loadStationTrend(), loadTopSpecies(), loadSpeciesTrend()]);
+}
+
+async function init() {
+  filtersData = await fetchJSON("/api/filters");
+  const minY = Math.min(...filtersData.years), maxY = Math.max(...filtersData.years);
+  const yf = document.getElementById("yearFrom"), yt = document.getElementById("yearTo");
+  yf.min = minY; yf.max = maxY; yf.value = minY;
+  yt.min = minY; yt.max = maxY; yt.value = maxY;
+  document.getElementById("yearRangeLabel").textContent = `${minY} - ${maxY}`;
+
+  const catSel = document.getElementById("categorySelect");
+  filtersData.categories.forEach(c => catSel.innerHTML += `<option value="${c}">${c}</option>`);
+  const stSel = document.getElementById("stationSelect");
+  filtersData.stations.forEach(s => stSel.innerHTML += `<option value="${s}">${s}</option>`);
+  const spSel = document.getElementById("speciesSelect");
+  filtersData.species.forEach(s => spSel.innerHTML += `<option value="${s.species_name_latin}">${s.species_name_zh||s.species_name_latin} (${s.category})</option>`);
+
+  [yf, yt].forEach(el => el.addEventListener("input", () => {
+    document.getElementById("yearRangeLabel").textContent = `${yf.value} - ${yt.value}`;
+    refreshAll();
+  }));
+  [catSel, stSel].forEach(el => el.addEventListener("change", refreshAll));
+  spSel.addEventListener("change", loadSpeciesTrend);
+
+  await loadKPIs();
+  await refreshAll();
+  await loadWaterQuality();
+  await loadConservation();
+}
+
+init();
+</script>
+</body>
+</html>
