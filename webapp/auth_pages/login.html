@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>登入 - 生態調查資料平台</title>
+<style>
+  :root {
+    --bg: #e8f5f1; --panel: #ffffff; --ink: #162624; --muted: #5c7d77;
+    --accent: #1f8a7e; --border: #c3e3da; --bad: #dc2626;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "Segoe UI", "Microsoft JhengHei", Arial, sans-serif; background:var(--bg); color:var(--ink); min-height:100vh; display:flex; flex-direction:column; }
+  header { background:linear-gradient(90deg,#0b1f1c,#17463f); color:#fff; padding:18px 24px; }
+  header h1 { font-size:18px; margin:0; font-weight:600; }
+  header .sub { font-size:12px; opacity:.8; margin-top:2px; }
+  main { flex:1; display:flex; align-items:center; justify-content:center; padding:24px 16px; }
+  .card { background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:28px; width:100%; max-width:360px; }
+  .card h2 { font-size:16px; margin:0 0 18px; }
+  label { display:block; font-size:12px; color:var(--muted); margin:14px 0 4px; }
+  input { width:100%; padding:9px 10px; border:1px solid var(--border); border-radius:6px; font-size:14px; }
+  input:focus { outline:2px solid var(--accent); outline-offset:-1px; }
+  button { width:100%; margin-top:22px; padding:10px; border:0; border-radius:6px; background:var(--accent); color:#fff; font-size:14px; font-weight:600; cursor:pointer; }
+  button:disabled { opacity:.6; cursor:default; }
+  .error { color:var(--bad); font-size:13px; margin-top:14px; min-height:1em; }
+</style>
+</head>
+<body>
+<header>
+  <h1>生態調查資料平台</h1>
+  <div class="sub">Douliu Weir Ecological Survey — Data &amp; Trend Analysis</div>
+</header>
+<main>
+  <form class="card" id="loginForm">
+    <h2>請登入</h2>
+    <label for="username">帳號</label>
+    <input id="username" name="username" autocomplete="username" required autofocus />
+    <label for="password">密碼</label>
+    <input id="password" name="password" type="password" autocomplete="current-password" required />
+    <button type="submit" id="submitBtn">登入</button>
+    <div class="error" id="error"></div>
+  </form>
+</main>
+<script>
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById("submitBtn"), err = document.getElementById("error");
+  btn.disabled = true; err.textContent = "";
+  try {
+    const res = await fetch("/api/login", {
+      method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({username: document.getElementById("username").value, password: document.getElementById("password").value}),
+    });
+    if (res.ok) { location.href = "/"; return; }
+    const data = await res.json().catch(() => ({}));
+    err.textContent = data.detail || "登入失敗";
+  } catch (ex) {
+    err.textContent = "無法連線到伺服器";
+  }
+  btn.disabled = false;
+});
+</script>
+</body>
+</html>

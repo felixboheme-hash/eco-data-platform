@@ -1,0 +1,11 @@
+# Liquibase 主 changelog：帳號相關資料表與初始管理員。
+# 每個 changeset 只會執行一次（記錄在資料庫的 databasechangelog 表），
+# 所以重新啟動不會覆蓋網站上改過的密碼或新增的帳號。
+# 已執行過的 changeset 內容不可再修改（checksum 會不符而啟動失敗）；要變更請新增檔案。
+databaseChangeLog:
+  - include:
+      file: 001-auth-tables.sql
+      relativeToChangelogFile: true
+  - include:
+      file: 002-seed-admin.sql
+      relativeToChangelogFile: true

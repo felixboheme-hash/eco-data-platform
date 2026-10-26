@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>帳號管理 - 生態調查資料平台</title>
+<style>
+  :root {
+    --bg: #e8f5f1; --panel: #ffffff; --ink: #162624; --muted: #5c7d77;
+    --accent: #1f8a7e; --border: #c3e3da; --good: #16a34a; --bad: #dc2626;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "Segoe UI", "Microsoft JhengHei", Arial, sans-serif; background:var(--bg); color:var(--ink); }
+  header { background:linear-gradient(90deg,#0b1f1c,#17463f); color:#fff; padding:18px 24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  header h1 { font-size:18px; margin:0; font-weight:600; }
+  header .sub { font-size:12px; opacity:.8; margin-top:2px; }
+  .userbar { font-size:13px; display:flex; gap:14px; align-items:center; }
+  .userbar a, .userbar button { color:#fff; font-size:13px; background:none; border:0; padding:0; cursor:pointer; text-decoration:underline; font-family:inherit; }
+  .wrap { max-width:900px; margin:0 auto; padding:16px; display:grid; gap:16px; }
+  .card { background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:16px 20px; }
+  .card h2 { font-size:14px; margin:0 0 12px; }
+  .row { display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end; }
+  .field { display:flex; flex-direction:column; flex:1 1 160px; }
+  .field label { font-size:12px; color:var(--muted); margin-bottom:4px; }
+  input[type=text], input[type=password] { padding:7px 9px; border:1px solid var(--border); border-radius:6px; font-size:13px; }
+  .check { font-size:13px; display:flex; align-items:center; gap:6px; padding-bottom:8px; }
+  button.primary, button.small { border:0; border-radius:6px; background:var(--accent); color:#fff; font-size:13px; cursor:pointer; }
+  button.primary { padding:8px 16px; }
+  button.small { padding:4px 10px; font-size:12px; }
+  button.small.secondary { background:#64748b; }
+  button.small.danger { background:var(--bad); }
+  .msg { font-size:13px; margin-top:10px; min-height:1em; }
+  .msg.ok { color:var(--good); } .msg.err { color:var(--bad); }
+  .table-wrap { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th, td { text-align:left; padding:8px; border-bottom:1px solid var(--border); white-space:nowrap; }
+  th { color:var(--muted); font-weight:600; font-size:12px; }
+  td.actions { display:flex; gap:6px; }
+  .badge { font-size:11px; padding:2px 8px; border-radius:10px; background:#dff2ec; color:#17463f; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>帳號管理</h1>
+    <div class="sub">生態調查資料平台</div>
+  </div>
+  <div class="userbar">
+    <span id="whoami"></span>
+    <a href="/">回儀表板</a>
+    <button id="logoutBtn">登出</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="card">
+    <h2>修改我的密碼</h2>
+    <form id="pwForm" class="row">
+      <div class="field"><label for="oldPw">目前密碼</label><input type="password" id="oldPw" autocomplete="current-password" required /></div>
+      <div class="field"><label for="newPw">新密碼（至少 6 個字元）</label><input type="password" id="newPw" autocomplete="new-password" required /></div>
+      <div class="field"><label for="newPw2">再次輸入新密碼</label><input type="password" id="newPw2" autocomplete="new-password" required /></div>
+      <button class="primary" type="submit">更新密碼</button>
+    </form>
+    <div class="msg" id="pwMsg"></div>
+  </section>
+
+  <section class="card" id="adminSection" hidden>
+    <h2>新增帳號</h2>
+    <form id="addForm" class="row">
+      <div class="field"><label for="newUser">帳號（3-32 個英數字或 _ . -）</label><input type="text" id="newUser" autocomplete="off" required /></div>
+      <div class="field"><label for="newUserPw">密碼（至少 6 個字元）</label><input type="password" id="newUserPw" autocomplete="new-password" required /></div>
+      <label class="check"><input type="checkbox" id="newUserAdmin" /> 管理員</label>
+      <button class="primary" type="submit">新增</button>
+    </form>
+    <div class="msg" id="addMsg"></div>
+  </section>
+
+  <section class="card" id="listSection" hidden>
+    <h2>所有帳號</h2>
+    <div class="table-wrap">
+      <table id="userTable">
+        <thead><tr><th>帳號</th><th>權限</th><th>建立時間</th><th>操作</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="msg" id="listMsg"></div>
+  </section>
+</div>
+
+<script>
+let me = null;
+
+async function api(method, path, body) {
+  const res = await fetch(path, {
+    method, headers: body ? {"Content-Type": "application/json"} : {},
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  if (res.status === 401) { location.href = "/login.html"; throw new Error("未登入"); }
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.detail || "操作失敗");
+  return data;
+}
+
+function showMsg(id, text, ok) {
+  const el = document.getElementById(id);
+  el.textContent = text; el.className = "msg " + (ok ? "ok" : "err");
+}
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+async function loadUsers() {
+  const users = await api("GET", "/api/users");
+  document.querySelector("#userTable tbody").innerHTML = users.map(u => {
+    const self = u.id === me.id;
+    return `<tr>
+      <td>${esc(u.username)}${self ? " <span class='badge'>你</span>" : ""}</td>
+      <td>${u.is_admin ? "管理員" : "一般使用者"}</td>
+      <td>${new Date(u.created_at).toLocaleString("zh-TW", {hour12:false})}</td>
+      <td class="actions">
+        <button class="small secondary" data-act="reset" data-id="${u.id}" data-name="${esc(u.username)}">重設密碼</button>
+        ${self ? "" : `<button class="small secondary" data-act="role" data-id="${u.id}" data-admin="${u.is_admin}">${u.is_admin ? "改為一般使用者" : "設為管理員"}</button>
+        <button class="small danger" data-act="delete" data-id="${u.id}" data-name="${esc(u.username)}">刪除</button>`}
+      </td></tr>`;
+  }).join("");
+}
+
+// 刪除需在同一按鈕上點兩次確認（避免誤刪）
+let pendingDelete = null;
+
+document.querySelector("#userTable").addEventListener("click", async (e) => {
+  const btn = e.target.closest("button[data-act]");
+  if (!btn) return;
+  const id = Number(btn.dataset.id);
+  try {
+    if (btn.dataset.act === "reset") {
+      const row = btn.closest("tr");
+      if (row.nextElementSibling && row.nextElementSibling.classList.contains("reset-row")) { row.nextElementSibling.remove(); return; }
+      const tr = document.createElement("tr");
+      tr.className = "reset-row";
+      tr.innerHTML = `<td colspan="4"><form class="row">
+        <div class="field"><label>${esc(btn.dataset.name)} 的新密碼（至少 6 個字元）</label><input type="password" autocomplete="new-password" required /></div>
+        <button class="primary" type="submit">確認重設</button></form></td>`;
+      row.after(tr);
+      tr.querySelector("input").focus();
+      tr.querySelector("form").addEventListener("submit", async (ev) => {
+        ev.preventDefault();
+        try {
+          await api("PUT", `/api/users/${id}`, {password: tr.querySelector("input").value});
+          tr.remove();
+          showMsg("listMsg", `已重設 ${btn.dataset.name} 的密碼`, true);
+        } catch (ex) { showMsg("listMsg", ex.message, false); }
+      });
+      return;
+    }
+    if (btn.dataset.act === "role") {
+      await api("PUT", `/api/users/${id}`, {is_admin: btn.dataset.admin !== "true"});
+      showMsg("listMsg", "已更新權限", true);
+    }
+    if (btn.dataset.act === "delete") {
+      if (pendingDelete !== id) {
+        pendingDelete = id;
+        btn.textContent = "再按一次確認刪除";
+        showMsg("listMsg", `確定要刪除帳號 ${btn.dataset.name}？再按一次「刪除」確認。`, false);
+        return;
+      }
+      pendingDelete = null;
+      await api("DELETE", `/api/users/${id}`);
+      showMsg("listMsg", `已刪除帳號 ${btn.dataset.name}`, true);
+    }
+    await loadUsers();
+  } catch (ex) { showMsg("listMsg", ex.message, false); }
+});
+
+document.getElementById("pwForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const newPw = document.getElementById("newPw").value;
+  if (newPw !== document.getElementById("newPw2").value) { showMsg("pwMsg", "兩次輸入的新密碼不一致", false); return; }
+  showMsg("pwMsg", "處理中…", true);
+  try {
+    await api("POST", "/api/me/password", {old_password: document.getElementById("oldPw").value, new_password: newPw});
+    e.target.reset();
+    showMsg("pwMsg", "密碼已更新", true);
+  } catch (ex) { showMsg("pwMsg", ex.message, false); }
+});
+
+document.getElementById("addForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const username = document.getElementById("newUser").value.trim();
+  showMsg("addMsg", "處理中…", true);
+  try {
+    await api("POST", "/api/users", {username, password: document.getElementById("newUserPw").value, is_admin: document.getElementById("newUserAdmin").checked});
+    e.target.reset();
+    showMsg("addMsg", `已新增帳號 ${username}`, true);
+    await loadUsers();
+  } catch (ex) { showMsg("addMsg", ex.message, false); }
+});
+
+document.getElementById("logoutBtn").addEventListener("click", async () => {
+  await fetch("/api/logout", {method: "POST"});
+  location.href = "/login.html";
+});
+
+(async function init() {
+  me = await api("GET", "/api/me");
+  document.getElementById("whoami").textContent = `使用者：${me.username}${me.is_admin ? "（管理員）" : ""}`;
+  if (me.is_admin) {
+    document.getElementById("adminSection").hidden = false;
+    document.getElementById("listSection").hidden = false;
+    await loadUsers();
+  }
+})();
+</script>
+</body>
+</html>

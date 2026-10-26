@@ -41,12 +41,33 @@ services:
       - ./data:/app/data
     restart: "no"
 
+  # 帳號資料表與初始管理員（只存密碼雜湊）由 Liquibase 建立；已執行過的 changeset 不會重跑，
+  # 所以 stop/start 不會覆蓋網站上改過的密碼。帳號資料保存在 pgdata volume。
+  liquibase:
+    image: liquibase/liquibase:4.29.2
+    container_name: eco-data-platform-liquibase
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./liquibase/changelog:/liquibase/changelog:ro
+    command:
+      - --search-path=/liquibase/changelog
+      - --changelog-file=db.changelog-master.yaml
+      - --url=jdbc:postgresql://db:5432/eco_data_platform
+      - --username=eco
+      - --password=eco_change_me
+      - update
+    restart: "no"
+
   webapp:
     build: ./webapp
     container_name: eco-data-platform-webapp
     depends_on:
       db:
         condition: service_healthy
+      liquibase:
+        condition: service_completed_successfully
     environment:
       PGHOST: db
       PGPORT: 5432

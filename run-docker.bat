@@ -1,60 +1,62 @@
 @echo off
-chcp 65001 >nul
-REM 啟動/管理 eco-data-platform（生態資料庫 + BI網頁）的 Docker 容器服務。
+REM Start/manage the eco-data-platform (ecology database + BI web page) Docker services.
 REM
-REM 用法：
-REM   run-docker.bat start        rem 建置 + 啟動（db / etl / webapp 三個服務）
-REM   run-docker.bat logs         rem 追蹤所有服務的 log
-REM   run-docker.bat stop         rem 停止並移除容器
-REM   run-docker.bat reload-data  rem 重新執行 etl，把 data\*.csv 重新匯入資料庫（不影響 db/webapp）
+REM Usage:
+REM   run-docker.bat start        - build + start (db / etl / webapp)
+REM   run-docker.bat logs         - follow logs of all services
+REM   run-docker.bat stop         - stop and remove containers
+REM   run-docker.bat reload-data  - re-run etl to reload data\*.csv (db/webapp unaffected)
+REM
+REM NOTE: keep this file pure ASCII. cmd.exe mis-parses multi-byte (Chinese) text,
+REM even inside REM lines, and then runs fragments as commands.
 
 setlocal
 
 cd /d "%~dp0"
 
 where docker >nul 2>nul
-if errorlevel 1 (
-    echo Error: docker is not installed or not found in PATH.
-    exit /b 1
-)
+if errorlevel 1 goto :no_docker
 
 docker info >nul 2>nul
-if errorlevel 1 (
-    echo Error: 無法連線到 Docker daemon，請先啟動 Docker Desktop 後再執行。
-    exit /b 1
-)
+if errorlevel 1 goto :no_daemon
 
-set ACTION=%1
+if /I "%~1"=="start" goto :start
+if /I "%~1"=="logs" goto :logs
+if /I "%~1"=="stop" goto :stop
+if /I "%~1"=="reload-data" goto :reload_data
+goto :usage
 
-if "%ACTION%"=="" (
-    echo Usage: %~n0 [start^|logs^|stop^|reload-data]
-    exit /b 1
-)
+:start
+docker compose up -d --build
+if errorlevel 1 exit /b 1
+echo.
+echo Services started. Open http://localhost:8000 in your browser.
+echo Use "run-docker.bat logs" to follow the logs.
+exit /b 0
 
-if /I "%ACTION%"=="start" (
-    docker compose up -d --build
-    echo.
-    echo 服務已啟動。瀏覽器開啟 http://localhost:8000 查看BI網頁。
-    echo 用 "run-docker.bat logs" 追蹤 log。
-    goto :eof
-)
+:logs
+docker compose logs -f
+exit /b
 
-if /I "%ACTION%"=="logs" (
-    docker compose logs -f
-    goto :eof
-)
+:stop
+docker compose down
+exit /b
 
-if /I "%ACTION%"=="stop" (
-    docker compose down
-    goto :eof
-)
+:reload_data
+echo Re-running ETL to reload data\*.csv into the database (db / webapp keep running)...
+docker compose run --rm etl
+if errorlevel 1 exit /b 1
+echo Done.
+exit /b 0
 
-if /I "%ACTION%"=="reload-data" (
-    echo 重新執行 ETL，將 data\*.csv 匯入資料庫（db / webapp 不受影響）...
-    docker compose run --rm etl
-    echo 完成。
-    goto :eof
-)
+:no_docker
+echo Error: docker is not installed or not found in PATH.
+exit /b 1
 
+:no_daemon
+echo Error: cannot connect to the Docker daemon. Please start Docker Desktop first.
+exit /b 1
+
+:usage
 echo Usage: %~n0 [start^|logs^|stop^|reload-data]
 exit /b 1

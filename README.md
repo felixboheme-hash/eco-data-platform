@@ -4,6 +4,10 @@
 
 ## 更新記錄
 
+- **2026-10-26（第十三次修正：新增登入頁與帳號管理）**：網站改成需要登入才能使用。初始管理員 `labtcs` 由 Liquibase 寫入資料庫（`liquibase/changelog/002-seed-admin.sql`），只存 PBKDF2 雜湊，不存明碼；密碼請向專案負責人取得，不寫在文件中。登入後，右上角會顯示使用者名稱、「帳號管理」連結和「登出」按鈕。帳號管理頁（`/account.html`）的功能：每個人都可以修改自己的密碼；管理員另外可以新增帳號、重設別人的密碼、切換「管理員／一般使用者」權限、刪除帳號。系統不允許刪除自己、不允許變更自己的權限，也不允許移除最後一個管理員。安全設計：密碼以 PBKDF2 加鹽雜湊（salted hash）儲存，不存明碼；登入狀態存在資料庫的 `app_session` 表，透過 HttpOnly cookie 傳遞，12 小時後失效；管理員重設某人密碼後，那個人原本的登入會全部失效；未登入時，頁面、`data.json` 和 `/api/*` 都無法取得。帳號資料表（`app_user`／`app_session`）由新增的 `liquibase` 服務建立（`liquibase/changelog/001-auth-tables.sql`），webapp 會等它執行成功才啟動。這兩張表不在 `sql/schema.sql` 裡，所以 `reload-data` 重新匯入資料不會影響帳號。登入頁和帳號管理頁放在 `webapp/auth_pages/`，打包進映像檔，不受 `artifact_data/` 掛載的影響。**這次改動要重新 build webapp 映像檔**（`stop` 後再 `start` 即可，`start` 會自動 build）。
+
+- **2026-10-26（第十二次修正：Windows 啟動腳本與跨平台）**：`run-docker.bat`／`run-podman.bat` 在 cmd 執行時會出現「'用' is not recognized」之類的錯誤，原因是 cmd 解析 UTF-8 中文時會錯位（連 REM 註解裡的中文也會），把中文片段當成指令執行。修正方式：兩個 `.bat` 改為純 ASCII（畫面訊息與註解改用英文），並改用標籤跳轉，不再用 `if ( … )` 區塊。另外新增 `.gitattributes`（`.sh` 固定使用 LF 換行、`.bat` 固定使用 CRLF 換行），並在 git 裡把 `.sh` 標記為可執行，讓 macOS 上 clone 下來可以直接執行 `./run-docker.sh`。四個腳本都會先檢查 Docker／Podman 有沒有在執行，沒有的話會提示要先啟動。
+
 - **2026-10-25（第十一次修正：修正容器跑出舊版頁面的問題）**：cic 回報容器跑起來後畫面是很舊的版本。查了才發現容器化（第九次修正）時把舊版 `webapp/static/index.html`（呼叫 FastAPI `/api/*` 的早期版本）一併搬進了 Docker 映像檔，但後續所有畫面更新（堆疊圖、保育類不分期間頁籤、原始資料彈窗等）都只改了 `artifact_data/index.html` 這份新版單檔頁面，兩邊從沒同步過，所以 `docker compose up` 起來看到的一直是舊畫面。修正方式：`webapp` 服務改成把 `./artifact_data` 直接掛載成容器內的 `/app/static`（唯讀），不再把頁面複製進映像檔；Dockerfile 移除複製舊 `static/` 的那一行。之後只要更新 `artifact_data/index.html` 或 `data.json`，重新整理瀏覽器即可看到最新版，不必重新 build 映像檔；但這次改動本身（compose 的掛載設定）要先 `./run-docker.sh stop` 再 `./run-docker.sh start`（或對應的 podman 指令）套用一次。
 
 - **2026-10-25（第十次修正：網站改用通用名稱）**：cic 要求把網頁的名稱從「斗六堰生態觀測站」改成不綁定集集斗六的通用名稱，因為之後會併入其他測點資料。已改為「生態調查資料平台」（`<title>` 與頁首標題都已更新）；頁尾「資料來源」「Phase 1範圍」等說明目前資料涵蓋範圍的文字維持不變，因為那是在陳述事實（目前確實只有斗六堰資料），不是網站品牌名稱，之後納入其他測點時再一併更新即可。
@@ -113,7 +117,19 @@ cd eco-data-platform
 
 啟動後：
 - PostgreSQL 在 5432 port（帳密見 docker-compose.yml，**正式上線前請務必修改預設密碼**）
-- BI 網頁在 http://<伺服器位址>:8000
+- BI 網頁在 http://<伺服器位址>:8000，需要登入。初始管理員帳號 `labtcs`（密碼請向專案負責人取得），**首次登入後請到右上角「帳號管理」修改密碼**。
+
+### 帳號資料會不會被清掉？
+
+帳號（含改過的密碼、新增的帳號）跟調查資料一樣存在 Docker 的 `pgdata` volume：
+
+| 操作 | 帳號資料 |
+|---|---|
+| `run-docker stop` → `start`（含重新 build） | **保留**。Liquibase 記錄已執行過的步驟（`databasechangelog` 表），不會重新寫入初始密碼 |
+| `run-docker reload-data` | **保留**。ETL 只清空並重新匯入 `fact_*` 資料表 |
+| `docker compose down -v`、`docker volume rm eco-data-platform_pgdata`、Docker Desktop 的 Clean / Purge data | **全部清除**。下次啟動會回到只有初始 `labtcs` 帳號（初始密碼）的狀態 |
+
+要調整帳號資料表，請在 `liquibase/changelog/` **新增** changeset 檔案並加進 `db.changelog-master.yaml`；已執行過的 changeset 不可修改，否則 checksum 不符，Liquibase 會報錯而 webapp 無法啟動。
 
 `etl` 容器只在啟動時執行一次，把 `data/*.csv` 匯入資料庫並建立 schema／索引／彙總 view；
 之後要重新整理資料，執行 `./run-docker.sh reload-data`（或 `run-podman.sh reload-data`）即可
@@ -129,6 +145,7 @@ eco-data-platform/                  (C:\workspace\TsingHuaEco\eco-data-platform\
 ├── run-docker.sh / .bat     # 比照 procurement 專案慣例的啟動/管理腳本（Docker）
 ├── run-podman.sh / .bat     # 同上，Podman 版本
 ├── .gitignore
+├── liquibase/changelog/     # Liquibase：帳號資料表（001）與初始管理員密碼雜湊（002）
 ├── sql/schema.sql           # 資料表、索引、彙總 view (v_species_year_summary 等)
 ├── etl/
 │   ├── extract_full_history.py   # 從原始 Excel 擷取成 tidy CSV（本次已執行，產出 data/*.csv）
@@ -140,9 +157,10 @@ eco-data-platform/                  (C:\workspace\TsingHuaEco\eco-data-platform\
 │   ├── fact_conservation_species.csv 816 筆，2019-2026 各期彙整
 │   └── fact_water_quality.csv        9 筆，2026 年水質監測
 ├── webapp/
-│   ├── app.py               # FastAPI：/api/summary /api/trend/* /api/top_species 等
+│   ├── app.py               # FastAPI：/api/summary /api/trend/* 等，以及登入／帳號管理 API
 │   ├── Dockerfile
-│   └── static/index.html    # 前端：Chart.js 圖表 + 篩選器
+│   ├── auth_pages/          # login.html（登入頁）、account.html（帳號管理），打包進映像檔
+│   └── static/index.html    # 舊版前端（已不使用；容器內 /app/static 改為掛載 artifact_data/）
 └── artifact_data/           # 已發布 Artifact 的原始碼（index.html 直接嵌入 data.json）
 ```
 
@@ -210,3 +228,7 @@ python3 etl/extract_full_history.py
 
 `docker-compose.yml` 內的資料庫密碼是預留的預設值 `eco_change_me`，正式部署到任何對外可及的伺服器前，
 請務必更改為實際密碼，並評估是否需要把 5432 port 對外關閉（僅讓 webapp 容器連線，不對外開放資料庫埠）。
+
+網站密碼請勿以明碼寫進程式碼、README 或 commit 訊息；資料庫與 changelog 只存 PBKDF2 雜湊。
+注意：雜湊仍可被離線暴力猜測，初始密碼越短越容易被破解，而 `002-seed-admin.sql` 會跟著 repo 公開，所以**首次登入後務必修改初始密碼**。
+目前網站使用 http，登入時帳密以明文傳送；如果要在區網以外使用，請在前面加一層 HTTPS 反向代理（reverse proxy，例如 nginx 或 Caddy）。

@@ -147,6 +147,9 @@ footer{color:var(--ink-dim); font-size:11px; text-align:center; padding-top:28px
     <h1>生態調查資料平台</h1>
     <div class="right">
       <div class="meta" id="metaLine">載入中…</div>
+      <div class="meta" id="userBar" hidden>
+        <span id="whoami"></span>　<a class="link-btn" href="/account.html">帳號管理</a>　<button class="link-btn" id="logoutBtn">登出</button>
+      </div>
       <button class="theme-btn" id="themeToggle" title="切換深淺色" aria-label="切換深淺色">☀️</button>
     </div>
   </div>
@@ -859,9 +862,28 @@ function initYearSlider(minY, maxY){
   });
 }
 
+// 由 webapp 提供時顯示登入使用者與登出；單獨開啟此檔（沒有 /api/me）時不顯示
+async function initUserBar(){
+  try{
+    const res = await fetch("/api/me");
+    if(res.status === 401){ location.href = "/login.html"; return; }
+    if(!res.ok) return;
+    const me = await res.json();
+    document.getElementById("whoami").textContent = `使用者：${me.username}`;
+    document.getElementById("logoutBtn").addEventListener("click", async () => {
+      await fetch("/api/logout", {method:"POST"});
+      location.href = "/login.html";
+    });
+    document.getElementById("userBar").hidden = false;
+  }catch(e){ /* 非 webapp 環境，略過 */ }
+}
+
 async function init(){
+  initUserBar();
   try{
     const res = await fetch("data.json");
+    // 登入逾時：data.json 會被導向登入頁
+    if(res.redirected && res.url.endsWith("/login.html")){ location.href = "/login.html"; return; }
     raw = await res.json();
   }catch(e){
     document.querySelector(".wrap").innerHTML = '<div class="loading">資料載入失敗，請重新整理頁面。</div>';
